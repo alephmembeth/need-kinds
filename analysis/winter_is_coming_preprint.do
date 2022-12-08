@@ -61,3 +61,56 @@ preserve
    tab age_quota quality_fail, chi2
    tab income_quota quality_fail, chi2
 restore
+
+
+/* study 1, importance */
+preserve
+   keep if complete == 1
+
+   tab need_type_survival
+   tab need_type_decency
+   tab need_type_belonging
+   tab need_type_autonomy
+
+   ci means need_type_survival
+   ci means need_type_decency
+   ci means need_type_belonging
+   ci means need_type_autonomy
+
+   signrank need_type_survival = need_type_decency
+   signrank need_type_decency = need_type_belonging
+   signrank need_type_belonging = need_type_autonomy
+
+   rename need_type_survival eval_1
+   rename need_type_decency eval_2
+   rename need_type_belonging eval_3
+   rename need_type_autonomy eval_4
+
+   reshape long eval_, i(id) j(kind_of_need)
+
+   label define kind_of_need_lb 1 "Survival" 2 "Decency" 3 "Belonging" 4 "Autonomy", replace
+      label values kind_of_need kind_of_need_lb
+
+   oneway eval kind_of_need, bonferroni tabulate
+
+   cibar eval_, over1(kind_of_need) ///
+      baropts( ///
+         lcolor(black) ///
+         lpattern(solid) ///
+         lwidth(medium) ///
+         ) ///
+      graphopts( ///
+         xtitle(Kind of Need) ///
+         xlabel(1 "Survival" 2 "Decency" 3 "Belonging" 4 "Autonomy") ///
+         ytitle(Importance) ///
+         ylabel(, angle(horizontal)) ///
+         legend(off) ///
+         graphregion(color(white)) ///
+         )
+      graph export "figure_2.pdf", as(pdf) replace
+
+   regress eval i.kind_of_need, vce(ols)
+   regress eval i.kind_of_need age gender household_net_income political_attitude sensitivity_to_cold, vce(ols)
+
+   margins i.kind_of_need, pwcompare(pv) level(95) mcompare(bonferroni)
+restore

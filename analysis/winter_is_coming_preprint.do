@@ -43,7 +43,11 @@ gen fail_1 = .
    replace fail_1 = checker_justice != "42" if complete == 1 | quality_fail == 1
 
 gen fail_2 = .
-   replace fail_2 = checker_community_heat != 1 | checker_community_carving == 1 | checker_community_renovating == 1 if complete == 1 | quality_fail == 1
+   replace fail_2 = ///
+      checker_community_heat != 1 | ///
+      checker_community_carving == 1 | ///
+      checker_community_renovating == 1 ///
+      if complete == 1 | quality_fail == 1
 
 gen fail_3 = .
    replace fail_3 = checker_number_of_need_types != 4 if complete == 1 | quality_fail == 1

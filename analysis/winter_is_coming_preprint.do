@@ -147,3 +147,36 @@ preserve
    tab age_quota
    tab income_quota
 restore
+
+
+/* study 2, failure rates */
+gen fail_1 = .
+   replace fail_1 = checker_justice != "42" if complete == 1 | quality_fail == 1
+
+gen fail_2 = .
+   replace fail_2 = ///
+      checker_winter != 1 | ///
+      checker_house == 1 | ///
+      checker_drinking == 1 | ///
+      checker_mill == 1 | ///
+      checker_wheat == 1 | ///
+      checker_rye == 1 | ///
+      checker_sunflowers == 1 ///
+      if complete == 1 | quality_fail == 1
+
+gen fail_3 = .
+   replace fail_3 = checker_amount != 1000 if complete == 1 | quality_fail == 1
+
+tab1 fail_1 fail_2 fail_3
+
+tab number_of_quality_fails
+
+tab quality_fail
+
+preserve
+   keep if complete == 1 | quality_fail == 1
+
+   tab gender quality_fail, chi2
+   tab age_quota quality_fail, chi2
+   tab income_quota quality_fail, chi2
+restore

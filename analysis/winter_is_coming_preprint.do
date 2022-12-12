@@ -184,3 +184,41 @@ preserve
    tab age_quota quality_fail, chi2
    tab income_quota quality_fail, chi2
 restore
+
+
+/* study 2, paired cases */
+keep if complete == 1
+
+reshape long ///
+   allocation_a_unequal_ need_a_unequal_ productivity_a_unequal_ needtype_a_unequal_ ///
+   allocation_b_unequal_ need_b_unequal_ productivity_b_unequal_ needtype_b_unequal_ ///
+   allocation_a_equal_ need_a_equal_ productivity_a_equal_ needtype_a_equal_ ///
+   allocation_b_equal_ need_b_equal_ productivity_b_equal_ needtype_b_equal_ ///
+   , i(id) j(case)
+
+rename *_ *
+
+reshape long ///
+   allocation_a_ need_a_ productivity_a_ needtype_a_ ///
+   allocation_b_ need_b_ productivity_b_ needtype_b_ ///
+   , i(id case) j(productivity) string
+
+rename *_ *
+
+gen need_share_a = need_a / (need_a + need_b)
+
+gen share_a = allocation_a / (productivity_a + productivity_b)
+
+gen allocation_diff = allocation_a - allocation_b
+
+encode productivity, gen(supply)
+   drop productivity
+   ren supply productivity
+
+encode needtype_a, gen(need_type_a)
+   drop needtype_a
+   ren need_type_a needtype_a
+
+encode needtype_b, gen(need_type_b)
+   drop needtype_b
+   ren need_type_b needtype_b

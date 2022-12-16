@@ -222,3 +222,38 @@ encode needtype_a, gen(need_type_a)
 encode needtype_b, gen(need_type_b)
    drop needtype_b
    ren need_type_b needtype_b
+
+preserve
+   keep if case == 0 | case == 4 | case == 7 | case == 9
+
+   replace case = 1 if case == 0
+   replace case = 2 if case == 4
+   replace case = 3 if case == 7
+   replace case = 4 if case == 9
+
+   label define case_lb 1 "Survival" 2 "Decency" 3 "Belonging" 4 "Autonomy", replace
+      label value case case_lb
+
+   label define productivity_lb 1 "Equal Productivity Scenario" 2 "Unequal Productivity Scenario", replace
+      label value productivity productivity_lb
+
+   by case, sort : ttest allocation_diff, by(productivity) unequal welch
+
+   cibar allocation_diff, over2(case) over1(productivity) ///
+      baropts( ///
+         lcolor(black) ///
+         lpattern(solid) ///
+         lwidth(medium) ///
+         ) ///
+      graphopts( ///
+         xtitle("Paired Case") ///
+         xlabel(, angle(forty_five)) ///
+         ytitle("Difference") ///
+         ylabel(-300 "—300" -200 "—200" -100 "—100" 0 "0" 100 "100", angle(horizontal)) ///
+         legend(cols(1)) ///
+         graphregion(color(white)) ///
+		 )
+      graph export "figure_4.pdf", as(pdf) replace
+
+   mean allocation_diff, over(case productivity)
+restore

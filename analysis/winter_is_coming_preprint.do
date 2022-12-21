@@ -257,3 +257,19 @@ preserve
 
    mean allocation_diff, over(case productivity)
 restore
+
+gen productivity_share_a = productivity_a / (productivity_a + productivity_b)
+
+preserve
+   gen deviation_a = abs(((share_a - productivity_share_a) / (need_share_a / productivity_share_a))) * 100
+
+   sum deviation_a if productivity == 1 & case == 0
+   sum deviation_a if productivity == 1 & case == 4
+   sum deviation_a if productivity == 1 & case == 7
+   sum deviation_a if productivity == 1 & case == 9
+
+   sum deviation_a if productivity == 2 & case == 0
+   sum deviation_a if productivity == 2 & case == 4
+   sum deviation_a if productivity == 2 & case == 7
+   sum deviation_a if productivity == 2 & case == 9
+restore

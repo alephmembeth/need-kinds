@@ -453,7 +453,7 @@ preserve
       by(productivity, ///
          note("") ///
          graphregion(color(white)) ///
-		 ) ///
+         ) ///
       xlabel(5 "1" 6 "2") ///
       ytitle("Difference") ///
       ylabel($breakdown_y_scale, angle(0)) ///

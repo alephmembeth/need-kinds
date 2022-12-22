@@ -252,7 +252,7 @@ preserve
          ylabel(-300 "— 300" -200 "— 200" -100 "— 100" 0 "0" 100 "100", angle(horizontal)) ///
          legend(cols(1)) ///
          graphregion(color(white)) ///
-		 )
+         )
       graph export "figure_4.pdf", as(pdf) replace
 
    mean allocation_diff, over(case productivity)

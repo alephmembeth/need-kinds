@@ -498,3 +498,5 @@ preserve
    keep if breakdown > 6
    bysort productivity: oneway breakdown_sum_ breakdown, bonferroni tabulate
 restore
+
+exit

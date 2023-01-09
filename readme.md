@@ -1,6 +1,6 @@
 # Winter is Coming
 
-This is a repository for the paper “Winter is Coming” by [Jan Romann](https://github.com/JKRhb), colleagues, and me.
+This is a repository for the paper “Winter is Coming” by [Jan Romann](https://github.com/JKRhb), Mark Siebel, Stefan Traub, and me.
 
 Once finished, a preprint will be availabe in the folder `/preprint`.
 

@@ -2,6 +2,5 @@
 
 This is a repository for the paper “Winter is Coming” by [Jan Romann](https://github.com/JKRhb), Mark Siebel, Stefan Traub, and me.
 
-Once finished, a preprint will be availabe in the folder `/preprint`.
-
-Data for the studies can be found in the folder `/analysis`, along with a do file for analysis with Stata.
+- Once finished, a preprint will be available in `/preprint`.
+- Data can be found in `/analysis`, along with a do file for analysis with Stata (version 14.2).

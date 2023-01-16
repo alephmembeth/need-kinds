@@ -6,7 +6,7 @@ set scheme s2color
 
 
 /* study 1, sample */
-use "study_1.dta", clear
+use "data_study_1.dta", clear
 
 label define gender_lb 0 "Female" 1 "Male" 2 "Diverse", replace
    label values gender gender_lb
@@ -121,7 +121,7 @@ restore
 
 
 /* study 2, sample */
-use "study_2.dta", clear
+use "data_study_2.dta", clear
 
 label define gender_lb 0 "Female" 1 "Male" 2 "Diverse", replace
    label values gender gender_lb

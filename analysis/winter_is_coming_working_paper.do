@@ -107,7 +107,7 @@ preserve
          xtitle(Kind of Need) ///
          xlabel(1 "Survival" 2 "Decency" 3 "Belonging" 4 "Autonomy") ///
          ytitle(Importance) ///
-         ylabel(, angle(horizontal)) ///
+         ylabel(1(1)7, angle(horizontal)) ///
          legend(off) ///
          graphregion(color(white)) ///
          )

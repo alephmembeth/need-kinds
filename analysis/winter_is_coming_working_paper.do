@@ -116,6 +116,14 @@ preserve
    regress eval i.kind_of_need, vce(ols)
    regress eval i.kind_of_need age gender household_net_income political_attitude sensitivity_to_cold, vce(ols)
 
+   xtset id 
+
+   xttobit eval i.kind_of_need, ll(1) ul(7)   
+   xttobit eval i.kind_of_need age gender household_net_income political_attitude sensitivity_to_cold, ll(1) ul(7)
+
+   xtreg eval i.kind_of_need, re vce(robust) level(90)
+   xtreg eval i.kind_of_need age gender household_net_income political_attitude sensitivity_to_cold, re vce(robust) level(90)
+
    margins i.kind_of_need, pwcompare(pv) level(95) mcompare(bonferroni)
 restore
 

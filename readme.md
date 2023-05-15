@@ -7,4 +7,4 @@ This is a repository for the paper “Winter is Coming” by [Jan Romann](https:
 
 It has first been published as a working paper.[^1]
 
-[^1]: Bauer, Alexander Max, Jan Romann, Mark Siebel, and Stefan Traub (2023): “Winter is Coming. How Laypeople Think About Different Kinds of Needs”. *SSRN Working Paper*. [(link)](https://ssrn.com/abstract=4383555)
+[^1]: Bauer, Alexander Max, Jan Romann, Mark Siebel, and Stefan Traub (2023): “Winter is Coming. How Laypeople Think About Different Kinds of Needs”. _SSRN Working Paper_. [(link)](https://ssrn.com/abstract=4383555)

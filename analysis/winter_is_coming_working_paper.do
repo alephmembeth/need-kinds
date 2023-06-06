@@ -1,4 +1,5 @@
 /* header */
+/* note: some commands require the cibar package; if not installed, run 'ssc install cibar' */
 version 14.2
 
 set more off, permanently

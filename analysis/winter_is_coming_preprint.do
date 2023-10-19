@@ -67,9 +67,14 @@ preserve
    tab income_quota quality_fail, chi2
 restore
 
+gen fail_once_or_more = .
+   replace fail_once_or_more = 1 if fail_1 == 1 | fail_2 == 1 | fail_3 == 1
+
+tab fail_once_or_more
+
 
 /* study 1, importance */
-keep if complete == 1
+keep if complete == 1 /* to exclude subjects who failed at least one check, run 'drop if fail_once_or_more == 1' */
 
 tab need_type_survival
 tab need_type_decency
@@ -225,9 +230,14 @@ preserve
    tab income_quota quality_fail, chi2
 restore
 
+gen fail_once_or_more = .
+   replace fail_once_or_more = 1 if fail_1 == 1 | fail_2 == 1 | fail_3 == 1
+
+tab fail_once_or_more
+
 
 /* study 2, paired cases */
-keep if complete == 1
+keep if complete == 1 /* to exclude subjects who failed at least one check, run 'drop if fail_once_or_more == 1' */
 
 reshape long ///
    allocation_a_unequal_ need_a_unequal_ productivity_a_unequal_ needtype_a_unequal_ ///
@@ -455,7 +465,7 @@ test (_b[2.productivity] = _b[2.productivity] + _b[1.need_combination] + _b[1.ne
 
 
 /* study 2, interaction with formulation */
-eststo: xttobit allocation_diff i.need_combination##i.frame, vce(oim) ll(-1000) ul(1000)
+eststo: xttobit allocation_diff i.need_combination##i.frame, vce(oim) ll(-1000) ul(1000) /* to include interaction of frame and productivity scenario, run 'eststo: xttobit allocation_diff i.need_combination##i.frame i.frame##i.productivity, vce(oim) ll(-1000) ul(1000)' */
 
 eststo T4
 

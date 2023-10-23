@@ -1,5 +1,6 @@
 /* header */
-/* note: some commands require the cibar package; if not installed, run 'ssc install cibar' first */
+/* note: some commands require the cibar package; if not installed, run next line first */
+ * ssc install cibar
 version 14.2
 
 set more off, permanently
@@ -74,7 +75,9 @@ tab fail_once_or_more
 
 
 /* study 1, importance */
-keep if complete == 1 /* to exclude subjects who failed at least one check, run 'drop if fail_once_or_more == 1' */
+/* to exclude subjects who failed at least one check, run next line */
+ * drop if fail_once_or_more == 1
+keep if complete == 1
 
 tab need_type_survival
 tab need_type_decency
@@ -119,50 +122,107 @@ cibar eval_, over1(kind_of_need) ///
          )
       graph export "figure_2.pdf", as(pdf) replace
 
-ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 1, vce(robust)
-predict score if kind_of_need == 1, xb
-generate prob7 = 1 - 1 / (1 + exp(score - _b[/cut4]))
-generate prob6 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3]))
-generate prob5 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2]))
-generate prob4 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1]))
-generate prob3 = 1 / (1 + exp(score - _b[/cut1]))
-drop score
 
-ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 2, vce(robust)
-predict score if kind_of_need == 2, xb
-replace prob7 = 1 - 1 / (1 + exp(score - _b[/cut4])) if kind_of_need == 2
-replace prob6 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3])) if kind_of_need == 2
-replace prob5 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2])) if kind_of_need == 2
-replace prob4 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 2
-replace prob3 = 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 2
-drop score
+/* study 1, ordered logit */
+preserve
+   ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 1, vce(robust)
+   predict score if kind_of_need == 1, xb
+   generate prob7 = 1 - 1 / (1 + exp(score - _b[/cut4]))
+   generate prob6 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3]))
+   generate prob5 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2]))
+   generate prob4 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1]))
+   generate prob3 = 1 / (1 + exp(score - _b[/cut1]))
+   drop score
 
-ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 3, vce(robust)
-predict score if kind_of_need == 3, xb
-replace prob7 = 1 - 1 / (1 + exp(score - _b[/cut6])) if kind_of_need == 3
-replace prob6 = 1 / (1 + exp(score - _b[/cut6])) - 1 / (1 + exp(score - _b[/cut5])) if kind_of_need == 3
-replace prob5 = 1 / (1 + exp(score - _b[/cut5])) - 1 / (1 + exp(score - _b[/cut4])) if kind_of_need == 3
-replace prob4 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3])) if kind_of_need == 3
-replace prob3 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2])) if kind_of_need == 3
-gen prob2 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 3
-gen prob1 = 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 3
-drop score
+   ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 2, vce(robust)
+   predict score if kind_of_need == 2, xb
+   replace prob7 = 1 - 1 / (1 + exp(score - _b[/cut4])) if kind_of_need == 2
+   replace prob6 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3])) if kind_of_need == 2
+   replace prob5 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2])) if kind_of_need == 2
+   replace prob4 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 2
+   replace prob3 = 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 2
+   drop score
 
-ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 4, vce(robust)
-predict score if kind_of_need == 4, xb
-replace prob7 = 1 - 1 / (1 + exp(score - _b[/cut6])) if kind_of_need == 4
-replace prob6 = 1 / (1 + exp(score - _b[/cut6])) - 1 / (1 + exp(score - _b[/cut5])) if kind_of_need == 4
-replace prob5 = 1 / (1 + exp(score - _b[/cut5])) - 1 / (1 + exp(score - _b[/cut4])) if kind_of_need == 4
-replace prob4 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3])) if kind_of_need == 4
-replace prob3 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2])) if kind_of_need == 4
-replace prob2 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 4
-replace prob1 = 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 4
-drop score
+   ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 3, vce(robust)
+   predict score if kind_of_need == 3, xb
+   replace prob7 = 1 - 1 / (1 + exp(score - _b[/cut6])) if kind_of_need == 3
+   replace prob6 = 1 / (1 + exp(score - _b[/cut6])) - 1 / (1 + exp(score - _b[/cut5])) if kind_of_need == 3
+   replace prob5 = 1 / (1 + exp(score - _b[/cut5])) - 1 / (1 + exp(score - _b[/cut4])) if kind_of_need == 3
+   replace prob4 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3])) if kind_of_need == 3
+   replace prob3 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2])) if kind_of_need == 3
+   gen prob2 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 3
+   gen prob1 = 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 3
+   drop score
 
-replace prob2 = 0 if prob2 == .
-replace prob1 = 0 if prob1 == .
+   ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 4, vce(robust)
+   predict score if kind_of_need == 4, xb
+   replace prob7 = 1 - 1 / (1 + exp(score - _b[/cut6])) if kind_of_need == 4
+   replace prob6 = 1 / (1 + exp(score - _b[/cut6])) - 1 / (1 + exp(score - _b[/cut5])) if kind_of_need == 4
+   replace prob5 = 1 / (1 + exp(score - _b[/cut5])) - 1 / (1 + exp(score - _b[/cut4])) if kind_of_need == 4
+   replace prob4 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3])) if kind_of_need == 4
+   replace prob3 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2])) if kind_of_need == 4
+   replace prob2 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 4
+   replace prob1 = 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 4
+   drop score
 
-mean prob7 prob6 prob5 prob4 prob3 prob2 prob1, over(kind_of_need)
+   replace prob2 = 0 if prob2 == .
+   replace prob1 = 0 if prob1 == .
+
+   mean prob7 prob6 prob5 prob4 prob3 prob2 prob1, over(kind_of_need)
+restore
+
+
+/* study 1, ordered logit only for participants with three correct answers to control questions */
+preserve
+   drop if fail_once_or_more == 1
+
+   ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 1, vce(robust)
+   predict score if kind_of_need == 1, xb
+   generate prob7 = 1 - 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 1
+   gen prob6 = 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 1
+   drop score
+
+   ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 2, vce(robust)
+   predict score if kind_of_need == 2, xb
+   replace prob7 = 1 - 1 / (1 + exp(score - _b[/cut4])) if kind_of_need == 2
+   replace prob6 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3])) if kind_of_need == 2
+   gen prob5 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2])) if kind_of_need == 2
+   gen prob4 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 2
+   gen prob3 = 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 2
+   drop score
+
+   ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 3, vce(robust)
+   predict score if kind_of_need == 3, xb
+   replace prob7 = 1 - 1 / (1 + exp(score - _b[/cut6])) if kind_of_need == 3
+   replace prob6 = 1 / (1 + exp(score - _b[/cut6])) - 1 / (1 + exp(score - _b[/cut5])) if kind_of_need == 3
+   replace prob5 = 1 / (1 + exp(score - _b[/cut5])) - 1 / (1 + exp(score - _b[/cut4])) if kind_of_need == 3
+   replace prob4 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3])) if kind_of_need == 3
+   replace prob3 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2])) if kind_of_need == 3
+   gen prob2 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 3
+   gen prob1 = 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 3
+   drop score
+
+   ologit eval_ c.age i.gender household_net_income political_attitude sensitivity_to_cold if kind_of_need == 4, vce(robust)
+   predict score if kind_of_need == 4, xb
+   replace prob7 = 1 - 1 / (1 + exp(score - _b[/cut6])) if kind_of_need == 4
+   replace prob6 = 1 / (1 + exp(score - _b[/cut6])) - 1 / (1 + exp(score - _b[/cut5])) if kind_of_need == 4
+   replace prob5 = 1 / (1 + exp(score - _b[/cut5])) - 1 / (1 + exp(score - _b[/cut4])) if kind_of_need == 4
+   replace prob4 = 1 / (1 + exp(score - _b[/cut4])) - 1 / (1 + exp(score - _b[/cut3])) if kind_of_need == 4
+   replace prob3 = 1 / (1 + exp(score - _b[/cut3])) - 1 / (1 + exp(score - _b[/cut2])) if kind_of_need == 4
+   replace prob2 = 1 / (1 + exp(score - _b[/cut2])) - 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 4
+   replace prob1 = 1 / (1 + exp(score - _b[/cut1])) if kind_of_need == 4
+   drop score
+
+   replace prob7 = 0 if prob7 == .
+   replace prob6 = 0 if prob6 == .
+   replace prob5 = 0 if prob5 == .
+   replace prob4 = 0 if prob4 == .
+   replace prob3 = 0 if prob3 == .
+   replace prob2 = 0 if prob2 == .
+   replace prob1 = 0 if prob1 == .
+
+   mean prob7 prob6 prob5 prob4 prob3 prob2 prob1, over(kind_of_need)
+restore
 
 
 /* study 2, sample */
@@ -237,7 +297,9 @@ tab fail_once_or_more
 
 
 /* study 2, paired cases */
-keep if complete == 1 /* to exclude subjects who failed at least one check, run 'drop if fail_once_or_more == 1' */
+/* to exclude subjects who failed at least one check, run next line */
+ * drop if fail_once_or_more == 1
+keep if complete == 1
 
 reshape long ///
    allocation_a_unequal_ need_a_unequal_ productivity_a_unequal_ needtype_a_unequal_ ///
@@ -465,7 +527,7 @@ test (_b[2.productivity] = _b[2.productivity] + _b[1.need_combination] + _b[1.ne
 
 
 /* study 2, interaction with formulation */
-eststo: xttobit allocation_diff i.need_combination##i.frame, vce(oim) ll(-1000) ul(1000) /* to include interaction of frame and productivity scenario, run 'eststo: xttobit allocation_diff i.need_combination##i.frame i.frame##i.productivity, vce(oim) ll(-1000) ul(1000)' */
+eststo: xttobit allocation_diff i.need_combination##i.frame, vce(oim) ll(-1000) ul(1000) 
 
 eststo T4
 
@@ -493,6 +555,10 @@ test (_b[2.frame] = _b[2.frame] + _b[1.need_combination] + _b[1.need_combination
 
 esttab T1 T2 T3 T4 using tobit_reg.tex, label se star(* 0.10 ** 0.05 *** 0.01) replace
 
+
+/* study 2, fully interacted model */
+eststo: xttobit allocation_diff i.need_combination##i.frame##i.productivity, vce(oim) ll(-1000) ul(1000)
+
 mean allocation_diff, over(case productivity)
 
 gen comptype = .
@@ -509,7 +575,7 @@ ttest allocation_diff if productivity == 1 & (comptype == 42 | comptype == 43), 
 ttest allocation_diff if productivity == 1 & (comptype == 31 | comptype == 32), by(comptype) unequal welch
 
 
-/* study 2, additivity */
+/* study 2, summation */
 use "study2_long", clear
 
 global barchart_options = "lcolor(black) lpattern(solid) lwidth(medium) graphregion(color(white))"

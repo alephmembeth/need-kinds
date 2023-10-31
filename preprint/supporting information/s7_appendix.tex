@@ -1,0 +1,116 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[greek,english]{babel}
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+   \renewcommand{\figurename}{Fig}
+\usepackage{changepage}
+\usepackage{cite}
+\usepackage{dcolumn}
+   \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage[right]{lineno}
+\usepackage{marvosym}
+\usepackage[nopatch=eqnum]{microtype}
+   \DisableLigatures[f]{encoding=*,family=*}
+\usepackage{nameref}
+\usepackage{pdflscape}
+\usepackage{soul}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+\usepackage{textcomp}
+
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+   \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+   \cline{#1}%
+   \noalign{\vskip\arrayrulewidth}%
+   \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+\bibliographystyle{plos2015}
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% \pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+% \setlength{\headheight}{27.023pt}
+% \lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ADDITIONAL QUESTIONS OF STUDY 2 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{S7 Appendix}
+{\bf Additional questions of Study 2}
+
+
+%%%%%%%%%%%%%%
+% PRINCIPLES %
+%%%%%%%%%%%%%%
+\paragraph*{Support for different distribution principles}
+
+\noindent\textit{Note: Items were displayed in a randomized order. An additional option for ``no answer/I don't know'' was included.}\vspace{1ex}
+
+\noindent How important were the following considerations for your distributions?
+Please give your answers on a scale from $1$ (not at all important) to $7$ (very important).
+
+\begin{itemize}
+   \item Each person should receive as much wood as they need.
+   \item Each person should receive the wood they have chopped.
+   \item Each person should receive the same amount of wood.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%
+% ORIENTATION %
+%%%%%%%%%%%%%%%
+\paragraph*{Political orientation}
+
+\noindent\textit{Note: An additional option for ``no answer/I don't know'' was included.}\vspace{1ex}
+
+\noindent In politics, one speaks of left-wing and right-wing.
+How would you describe your own political position in general?
+Where on a scale of $1$ (left) to $7$ (right) would you place yourself?
+
+
+%%%%%%%%%%%%%%%
+% SENSITIVITY %
+%%%%%%%%%%%%%%%
+\paragraph*{Sensitivity to cold}
+
+\noindent\textit{Note: An additional option for ``no answer/I don't know'' was included.}\vspace{1ex}
+
+\noindent On a scale from $1$ (not at all sensitive to cold) to $7$ (very sensitive to cold), how sensitive are you to cold?
+
+\end{document}

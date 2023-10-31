@@ -1,0 +1,111 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[greek,english]{babel}
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+   \renewcommand{\figurename}{Fig}
+\usepackage{changepage}
+\usepackage{cite}
+\usepackage{dcolumn}
+   \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage[right]{lineno}
+\usepackage{marvosym}
+\usepackage[nopatch=eqnum]{microtype}
+   \DisableLigatures[f]{encoding=*,family=*}
+\usepackage{nameref}
+\usepackage{pdflscape}
+\usepackage{soul}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+\usepackage{textcomp}
+
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+   \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+   \cline{#1}%
+   \noalign{\vskip\arrayrulewidth}%
+   \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+\bibliographystyle{plos2015}
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% \pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+% \setlength{\headheight}{27.023pt}
+% \lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONTROL QUESTIONS OF STUDY 2 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph*{S6 Appendix}
+{\bf Control questions of Study 2}
+
+\noindent\textit{Note: Options for Questions 2 and 3 were displayed in randomized order.}\vspace{1ex}
+
+\paragraph*{Question 1:} Please describe how often you reflect on justice issues in your daily life and what this means to you.
+
+We ask this question to ensure that the tasks are read carefully.
+If you are reading this, please enter the number $42$ in the field below instead of an answer to the question itself.
+
+Have you ever reflected on justice issues?
+
+\paragraph*{Question 2:} Which statements apply to this study?
+Multiple answers are possible.
+
+\begin{itemize}
+   \item[$\square$] Farmers work a rye field.
+   \item[$\square$] Farmers work a sunflower field.
+   \item[$\square$] Farmers work a wheat field.
+   \item[$\square$] Wood is needed to build a house.
+   \item[$\square$] Wood is needed to heat in winter.
+   \item[$\square$] Water is needed to run a mill.
+   \item[$\square$] Water is needed to drink.
+\end{itemize}
+
+\paragraph*{Question 3:} How much wood have $A$ and $B$ cut together in the previous displayed cases.
+
+\begin{itemize}
+   \item[$\square$] $5000$
+   \item[$\square$] $3000$
+   \item[$\square$] $2500$
+   \item[$\square$] $1800$
+   \item[$\square$] $1200$
+   \item[$\square$] $1000$
+   \item[$\square$]  $500$
+\end{itemize}
+
+\end{document}

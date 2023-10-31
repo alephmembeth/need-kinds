@@ -1,0 +1,104 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[greek,english]{babel}
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+   \renewcommand{\figurename}{Fig}
+\usepackage{changepage}
+\usepackage{cite}
+\usepackage{dcolumn}
+   \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage[right]{lineno}
+\usepackage{marvosym}
+\usepackage[nopatch=eqnum]{microtype}
+   \DisableLigatures[f]{encoding=*,family=*}
+\usepackage{nameref}
+\usepackage{pdflscape}
+\usepackage{soul}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+\usepackage{textcomp}
+
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+   \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+   \cline{#1}%
+   \noalign{\vskip\arrayrulewidth}%
+   \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+\bibliographystyle{plos2015}
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% \pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+% \setlength{\headheight}{27.023pt}
+% \lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+\begin{document}
+
+
+%%%%%%%%%%%%
+% PAIRWISE %
+%%%%%%%%%%%%
+\paragraph*{S12 Table}
+{\bf Margins (Relative Need Evaluations) of Model (I)}
+
+\begin{table}[ht!]
+\begin{adjustwidth}{0in}{0in}
+\label{tab:margins_I}
+\begin{tabular}{cd{4.1}c}\hline
+   \multicolumn{1}{c}{Mixed Case}         & \multicolumn{1}{c}{Rel. Eval.}                           & \multicolumn{1}{c}{Wald Test}                               \\
+   \multicolumn{1}{c}{$\alpha$,$\beta$}   & \multicolumn{1}{c}{$\overline{\Delta}_{\alpha,\beta}$}   & \multicolumn{1}{c}{$\chi^2$}                                \\\hline\hline
+   Sur – Aut                              & 465.1^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Bel}$   \\ 
+                                          & (21.9)                                                   & $22.58^{***}$                                               \\
+   Sur – Bel                              & 372.1^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Dec}$   \\
+                                          & (21.8)                                                   & $232.89^{***}$                                              \\
+   Sur – Dec                              & 167.0^{***}                                              & $\overline{\Delta}_{Sur,Bel}=\overline{\Delta}_{Sur,Dec}$   \\
+                                          & (21.8)                                                   & $110.80^{***}$                                              \\
+   Dec – Aut                              & 330.8^{***}                                              & $\overline{\Delta}_{Dec,Aut}=\overline{\Delta}_{Dec,Bel}$   \\
+                                          & (21.8)                                                   & $33.09^{***}$                                               \\
+   Dec – Bel                              & 218.7^{***}                                              &                                                             \\
+                                          & (21.8)                                                   &                                                             \\
+   Bel – Aut                              &  48.9^{**}                                               &                                                             \\
+                                          & (21.8)                                                   &                                                             \\\hline
+                                          &                                                          & joint                                                       \\
+                                          &                                                          & $277.45^{***}$                                              \\\hline
+\end{tabular}
+\begin{flushleft}  
+   The table reports the margins (predicted means of relative need evaluations) $\overline{\Delta}_{\alpha,\beta}$ estimated by Tobit regression, see Table~5, Model (I). First row: mean; second row: standard error in parentheses. Margins significantly different from zero are marked with asterisks. $\chi^2$ of a Wald test on the equality of two margins. Significance levels: $^{*}$\,$p<0.10$, $^{**}$\,$p<0.05$, $^{***}$\,$p<0.01$. Wald tests with Bonferroni correction.
+\end{flushleft}
+\end{adjustwidth}
+\end{table}
+
+\end{document}

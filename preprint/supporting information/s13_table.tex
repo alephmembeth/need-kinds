@@ -1,0 +1,135 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[greek,english]{babel}
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+   \renewcommand{\figurename}{Fig}
+\usepackage{changepage}
+\usepackage{cite}
+\usepackage{dcolumn}
+   \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage[right]{lineno}
+\usepackage{marvosym}
+\usepackage[nopatch=eqnum]{microtype}
+   \DisableLigatures[f]{encoding=*,family=*}
+\usepackage{nameref}
+\usepackage{pdflscape}
+\usepackage{soul}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+\usepackage{textcomp}
+
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+   \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+   \cline{#1}%
+   \noalign{\vskip\arrayrulewidth}%
+   \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+\bibliographystyle{plos2015}
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% \pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+% \setlength{\headheight}{27.023pt}
+% \lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+\begin{document}
+
+
+%%%%%%%%%%%%
+% PAIRWISE %
+%%%%%%%%%%%%
+\paragraph*{S13 Table}
+{\bf Margins (Relative Need Evaluations) by Productivity Scenario and Frame}
+
+\begin{table}[ht!]
+\begin{adjustwidth}{-1in}{0in}
+\label{tab:margins_II}{\footnotesize
+\begin{tabular}{cd{4.1}cd{4.1}cc} \hline\hline
+\multicolumn{1}{c}{Mixed Case}       & \multicolumn{1}{c}{Rel. Eval.}                           & \multicolumn{1}{c}{Wald Test}                               & \multicolumn{1}{c}{Rel. Eval.}                           & \multicolumn{1}{c}{Wald Test}                               & \multicolumn{1}{c}{Wald Test}                                                 \\
+\multicolumn{1}{c}{$\alpha,\beta$}   & \multicolumn{1}{c}{$\overline{\Delta}_{\alpha,\beta}$}   & \multicolumn{1}{c}{$\chi^2$}                                & \multicolumn{1}{c}{$\overline{\Delta}_{\alpha,\beta}$}   & \multicolumn{1}{c}{$\chi^2$}                                & \multicolumn{1}{c}{$\chi^2$}                                                  \\\hline
+\multicolumn{1}{c}{Model (II)}       & \multicolumn{2}{c}{Equal Productivity}                                                                                 & \multicolumn{2}{c}{Unequal Productivity}                                                                               & \multicolumn{1}{c}{Eq. vs. Uneq.}                                             \\\hline
+Sur – Aut                            & 532.3^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Bel}$   & 397.5^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Bel}$   & $\overline{\Delta}_{Sur,Aut}^{Equal}=\overline{\Delta}_{Sur,Aut}^{Unequal}$   \\
+                                     & (25.6)                                                   &  $13.75^{***}$                                              & (25.4)                                                   &  $10.53^{***}$                                              &  $25.31^{***}$                                                                \\
+Sur – Bel                            & 432.9^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Dec}$   & 310.9^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Dec}$   & $\overline{\Delta}_{Sur,Bel}^{Equal}=\overline{\Delta}_{Sur,Bel}^{Unequal}$   \\
+                                     & (25.4)                                                   & $151.73^{***}$                                              & (25.3)                                                   & $100.26^{***}$                                              &  $20.95^{***}$                                                                \\
+Sur – Dec                            & 203.1^{***}                                              & $\overline{\Delta}_{Sur,Bel}=\overline{\Delta}_{Sur,Dec}$   & 130.7^{***}                                              & $\overline{\Delta}_{Sur,Bel}=\overline{\Delta}_{Sur,Dec}$   &$\overline{\Delta}_{Sur,Dec}^{Equal}=\overline{\Delta}_{Sur,Dec}^{Unequal}$    \\
+                                     & (25.4)                                                   &  $74.51^{***}$                                              & (25.3)                                                   &  $45.88^{***}$                                              &   $7.41^{**}$                                                                 \\
+Dec – Aut                            & 405.0^{***}                                              & $\overline{\Delta}_{Dec,Aut}=\overline{\Delta}_{Dec,Bel}$   & 256.2^{***}                                              & $\overline{\Delta}_{Dec,Aut}=\overline{\Delta}_{Dec,Bel}$   & $\overline{\Delta}_{Dec,Aut}^{Equal}=\overline{\Delta}_{Dec,Aut}^{Unequal}$   \\
+                                     & (25.3)                                                   &  $15.95^{***}$                                              & (25.3)                                                   &  $19.53^{***}$                                              &  $31.17^{***}$                                                                \\
+Dec – Bel                            & 298.6^{***}                                              &                                                             & 138.6^{***}                                              &                                                             & $\overline{\Delta}_{Dec,Bel}^{Equal}=\overline{\Delta}_{Dec,Bel}^{Unequal}$   \\
+                                     & (25.3)                                                   &                                                             & (25.3)                                                   &                                                             &  $36.23^{***}$                                                                \\
+Bel – Aut                            & 123.7^{***}                                              &                                                             & -26.1                                                    &                                                             & $\overline{\Delta}_{Bel,Aut}^{Equal}=\overline{\Delta}_{Bel,Aut}^{Unequal}$   \\
+                                     & (25.3)                                                   &                                                             & (25.3)                                                   &                                                             &  $31.85^{***}$                                                                \\\hline
+                                     &                                                          & joint                                                       &                                                          & joint                                                       & joint                                                                         \\
+                                     &                                                          & $176.11^{***}$                                              &                                                          & $124.04^{***}$                                              & $152.91^{***}$                                                                \\\hline
+\multicolumn{1}{c}{Model (III)}      & \multicolumn{2}{c}{Equal Productivity}                                                                                 & \multicolumn{2}{c}{Unequal Productivity}                                                                               & \multicolumn{1}{c}{Eq. vs. Uneq.}                                             \\\hline
+Sur – Aut                            & 546.2^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Bel}$   & 396.2^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Bel}$   & $\overline{\Delta}_{Sur,Aut}^{Equal}=\overline{\Delta}_{Sur,Aut}^{Unequal}$   \\
+                                     & (24.6)                                                   &  $13.80^{***}$                                              & (25.0)                                                   &  $10.53^{***}$                                              &  $27.51^{***}$                                                                \\
+Sur – Bel                            & 440.0^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Dec}$   & 305.3^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Dec}$   & $\overline{\Delta}_{Sur,Bel}^{Equal}=\overline{\Delta}_{Sur,Bel}^{Unequal}$   \\
+                                     & (24.5)                                                   & $140.48^{***}$                                              & (24.4)                                                   &  $86.92^{***}$                                              &  $22.42^{***}$                                                                \\
+Sur – Dec                            & 208.3^{***}                                              & $\overline{\Delta}_{Sur,Bel}=\overline{\Delta}_{Sur,Dec}$   & 131.4^{***}                                              & $\overline{\Delta}_{Sur,Bel}=\overline{\Delta}_{Sur,Dec}$   & $\overline{\Delta}_{Sur,Dec}^{Equal}=\overline{\Delta}_{Sur,Dec}^{Unequal}$   \\
+                                     & (24.4)                                                   &  $66.59^{***}$                                              & (24.4)                                                   &  $37.63^{***}$                                              &   $7.37^{**}$                                                                 \\
+Dec – Aut                            & 412.6^{***}                                              & $\overline{\Delta}_{Dec,Aut}=\overline{\Delta}_{Dec,Bel}$   & 252.1^{***}                                              & $\overline{\Delta}_{Dec,Aut}=\overline{\Delta}_{Dec,Bel}$   & $\overline{\Delta}_{Dec,Aut}^{Equal}=\overline{\Delta}_{Dec,Aut}^{Unequal}$   \\
+                                     & (24.5)                                                   &  $16.61^{***}$                                              & (24.4)                                                   &  $20.72^{***}$                                              &  $31.92^{***}$                                                                \\
+Dec – Bel                            & 296.9^{***}                                              &                                                             & 123.0^{***}                                              &                                                             & $\overline{\Delta}_{Dec,Bel}^{Equal}=\overline{\Delta}_{Dec,Bel}^{Unequal}$   \\
+                                     & (24.4)                                                   &                                                             & (24.4)                                                   &                                                             &  $37.65^{***}$                                                                \\
+Bel – Aut                            & 135.2^{***}                                              &                                                             & -23.0                                                    &                                                             & $\overline{\Delta}_{Bel,Aut}^{Equal}=\overline{\Delta}_{Bel,Aut}^{Unequal}$   \\
+                                     & (24.4)                                                   &                                                             & (24.4)                                                   &                                                             &  $31.29^{***}$                                                                \\\hline
+                                     &                                                          & joint                                                       &                                                          & joint                                                       & joint                                                                         \\
+                                     &                                                          & $164.01^{***}$                                              &                                                          & $110.61^{***}$                                              & $158.15^{***}$                                                                \\\hline
+\multicolumn{1}{c}{Model (IV)}       & \multicolumn{2}{c}{Avoidance}                                                                                          & \multicolumn{2}{c}{Enablement}                                                                                         & \multicolumn{1}{c}{Avoid. vs. Enable.}                                        \\\hline
+Sur – Aut                            & 481.1^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Bel}$   & 449.3^{***}                                              & $\Delta_{Sur,Aut}=\Delta_{Sur,Bel}$                         & $\overline{\Delta}_{Sur,Aut}^{Avoid}=\overline{\Delta}_{Sur,Aut}^{Enable}$    \\
+                                     & (30.9)                                                   &  $14.28^{***}$                                              & (30.9)                                                   &   $8.68^{**}$                                               &   $0.54$                                                                      \\
+Sur – Bel                            & 376.7^{***}                                              & $\overline{\Delta}_{Sur,Aut}=\overline{\Delta}_{Sur,Dec}$   & 367.5^{***}                                              & $\Delta_{Sur,Aut}=\Delta_{Sur,Dec}$                         & $\overline{\Delta}_{Sur,Bel}^{Avoid}=\overline{\Delta}_{Sur,Bel}^{Enable}$    \\
+                                     & (30.8)                                                   & $117.75^{***}$                                              & (30.8)                                                   & $115.46^{***}$                                              &   $0.04$                                                                      \\
+Sur – Dec                            & 181.7^{***}                                              & $\overline{\Delta}_{Sur,Bel}=\overline{\Delta}_{Sur,Dec}$   & 152.2^{***}                                              & $\Delta_{Sur,Bel}=\Delta_{Sur,Dec}$                         & $\overline{\Delta}_{Sur,Dec}^{Avoid}=\overline{\Delta}_{Sur,Dec}^{Enable}$    \\
+                                     & (30.8)                                                   &  $50.22^{***}$                                              & (30.8)                                                   &  $61.00^{***}$                                              &   $0.46$                                                                      \\
+Dec – Aut                            & 341.5^{***}                                              & $\overline{\Delta}_{Dec,Aut}=\overline{\Delta}_{Dec,Bel}$   & 320.0^{***}                                              & $\Delta_{Dec,Aut}=\Delta_{Dec,Bel}$                         & $\overline{\Delta}_{Dec,Aut}^{Avoid}=\overline{\Delta}_{Dec,Aut}^{Enable}$    \\
+                                     & (30.8)                                                   &  $22.67^{***}$                                              & (30.8)                                                   &  $11.43^{***}$                                              &   $0.24$                                                                      \\
+Dec – Bel                            & 210.5^{***}                                              &                                                             & 226.9^{***}                                              &                                                             & $\overline{\Delta}_{Dec,Bel}^{Avoid}=\overline{\Delta}_{Dec,Bel}^{Enable}$    \\
+                                     & (30.8)                                                   &                                                             & (30.8)                                                   &                                                             &   $0.14$                                                                      \\
+Bel – Aut                            &  69.5^{**}                                               &                                                             &  28.32                                                   &                                                             & $\overline{\Delta}_{Bel,Aut}^{Avoid}=\overline{\Delta}_{Bel,Aut}^{Enable}$    \\
+                                     & (30.8)                                                   &                                                             & (30.8)                                                   &                                                             &   $0.89$                                                                      \\\hline
+                                     &                                                          & joint                                                       &                                                          & joint                                                       & joint                                                                         \\
+                                     &                                                          & $144.20^{***}$                                              &                                                          & $134.99^{***}$                                              &   $3.11$                                                                      \\\hline
+\end{tabular}}
+\begin{flushleft}  
+   The table reports the margins (predicted means of relative need evaluations) $\overline{\Delta}_{\alpha,\beta}$ estimated by Tobit regression, see Table~5, Models (II)--(IV). First row: mean, second row: standard error in parentheses. Margins significantly different from zero are marked with asterisks. $\chi^2$ of a Wald test on the equality of two margins. Significance levels: $^{*}$\,$p<0.10$, $^{**}$\,$p<0.05$, $^{***}$\,$p<0.01$. Wald tests with Bonferroni correction.
+\end{flushleft}
+\end{adjustwidth}
+\end{table}
+
+\end{document}

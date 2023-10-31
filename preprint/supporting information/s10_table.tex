@@ -1,0 +1,104 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[greek,english]{babel}
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+   \renewcommand{\figurename}{Fig}
+\usepackage{changepage}
+\usepackage{cite}
+\usepackage{dcolumn}
+   \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage[right]{lineno}
+\usepackage{marvosym}
+\usepackage[nopatch=eqnum]{microtype}
+   \DisableLigatures[f]{encoding=*,family=*}
+\usepackage{nameref}
+\usepackage{pdflscape}
+\usepackage{soul}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+\usepackage{textcomp}
+
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+   \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+   \cline{#1}%
+   \noalign{\vskip\arrayrulewidth}%
+   \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+\bibliographystyle{plos2015}
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% \pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+% \setlength{\headheight}{27.023pt}
+% \lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+\begin{document}
+
+
+%%%%%%%%
+% MEAN %
+%%%%%%%%
+\paragraph*{S10 Table}
+{\bf Mean differences for Cases by Productivity Scenario}
+
+\begin{table}[ht!]
+\begin{adjustwidth}{-1in}{0in}
+\label{tab:means_mixed_paired}
+\begin{tabular}{lcd{3.3}ccd{3.3}cd{3.3}d{1.6}}\\[0.5ex]\hline \\[-1.5ex]
+                           &   & \multicolumn{5}{c}{Productivity Scenario}                                                                                                                                                   &                             &                           \\\cline{3-7}
+                                                                                                                                                                                                                                                                                       \\[-1.5ex]
+                           &   & \multicolumn{2}{c}{EPS}                                                                    &   & \multicolumn{2}{c}{UPS}                                                                    &                             &                           \\\cline{3-4}\cline{6-7}
+                                                                                                                                                                                                                                                                                       \\[-1.5ex]
+   Case ($\alpha,\beta$)   &   & \multicolumn{1}{c}{$\overline{\Delta}_{\alpha,\beta}$}   & \multicolumn{1}{c}{$95\%$ CI}   &   & \multicolumn{1}{c}{$\overline{\Delta}_{\alpha,\beta}$}   & \multicolumn{1}{c}{$95\%$ CI}   & \multicolumn{1}{c}{Diff.}   & \multicolumn{1}{c}{$t$}   \\\hline\hline
+   Sur -- Sur              &   & -14.8                                                    & $[-37.709,   8.080]$            &   &  -72.2                                                   & $[-132.921,  -11.523]$          &  57.4                       & 1.740^{*}                 \\
+   Dec -- Dec              &   &   0.0                                                    &                                 &   & -150.0                                                   & $[-213.765,  -86.235]$          & 150.0                       & 4.625^{***}               \\
+   Bel -- Bel              &   &   9.3                                                    & $[-10.120,  28.725]$            &   & -260.5                                                   & $[-339.553, -181.378]$          & 269.8                       & 6.512^{***}               \\
+   Aut -- Aut              &   & -35.2                                                    & $[-84.039,  13.608]$            &   & -225.5                                                   & $[-308.627, -142.432]$          & 190.3                       & 3.882^{***}               \\\hline
+   Sur -- Aut              &   & 515.7                                                    & $[467.261, 564.119]$            &   &  388.5                                                   & $ [331.488,  445.472]$          & 127.2                       & 3.335^{***}               \\
+   Sur -- Bel              &   & 425.4                                                    & $[380.155, 470.625]$            &   &  305.5                                                   & $ [249.298,  361.682]$          & 119.9                       & 3.259^{***}               \\
+   Dec -- Aut              &   & 398.3                                                    & $[356.770, 439.790]$            &   &  251.0                                                   & $ [196.734,  305.267]$          & 147.3                       & 4.227^{***}               \\
+   Dec -- Bel              &   & 295.3                                                    & $[255.957, 334.663]$            &   &  136.5                                                   & $ [ 84.059,  188.941]$          & 158.8                       & 4.750^{***}               \\
+   Sur -- Dec              &   & 201.5                                                    & $[163.081, 239.939]$            &   &  129.0                                                   & $ [ 82.679,  175.321]$          &  72.5                       & 2.363^{***}               \\
+   Bel -- Aut              &   & 122.6                                                    & $[ 85.082, 160.099]$            &   &  -27.5                                                   & $ [-81.641,   26.641]$          & 150.1                       & 4.469^{***}               \\\hline
+                                                                                                                                                                                                                                                                                       \\[-1.5ex]
+\end{tabular}
+\begin{flushleft}
+   The table reports the mean differences ($\overline{\Delta}_{\alpha,\beta}$) of Paired Cases (upper part) and Mixed Cases (lower part) by Productivity Scenario as well as results of two-tailed Welch's t-tests. Significance levels: $^{*}$\,$p<0.10$, $^{**}$\,$p<0.05$, $^{***}$\,$p<0.01$.
+\end{flushleft}
+\end{adjustwidth}
+\end{table}
+
+\end{document}

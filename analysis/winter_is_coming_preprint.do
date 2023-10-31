@@ -800,4 +800,3 @@ ranksum need_type_survival, by(file)
 ranksum need_type_decency, by(file)
 ranksum need_type_belonging, by(file)
 ranksum need_type_autonomy, by(file)
-

@@ -1,0 +1,990 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[greek,english]{babel}
+\usepackage[above skip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+   \renewcommand{\figurename}{Fig}
+\usepackage{changepage}
+\usepackage{cite}
+\usepackage{color}
+\usepackage{dcolumn}
+   \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage[right]{lineno}
+\usepackage{marvosym}
+\usepackage[nopatch=eqnum]{microtype}
+   \DisableLigatures[f]{encoding=*,family=*}
+\usepackage{nameref}
+\usepackage{pdflscape}
+\usepackage{soul}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+\usepackage{textcomp}
+
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+   \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+   \cline{#1}%
+   \noalign{\vskip\arrayrulewidth}%
+   \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+\bibliographystyle{plos2015}
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% \pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+% \setlength{\headheight}{27.023pt}
+% \lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+\begin{document}
+\vspace*{0.2in}
+
+
+%%%%%%%%%
+% TITLE %
+%%%%%%%%%
+\begin{flushleft}
+{\Large
+\textbf\newline{Winter is coming: How laypeople think about different kinds of needs}
+}
+\newline
+\\
+Bauer, Alexander Max,\textsuperscript{1\P*}
+Romann, Jan,\textsuperscript{2\P}
+Siebel, Mark,\textsuperscript{1\P}
+and Traub, Stefan\textsuperscript{3\P}
+\\
+\bigskip
+\textbf{1} Department of Philosophy, University of Oldenburg, Oldenburg, Germany
+\\
+\textbf{2} Faculty of Technology, University of Applied Sciences Emden/Leer, Emden, Germany
+\\
+\textbf{3} Department of Economics, Helmut-Schmidt-University, Hamburg, Germany
+\\
+\bigskip
+
+\P These authors contributed equally to this work.
+
+* \href{mailto:alexander.max.bauer@uni-oldenburg.de}{alexander.max.bauer@uni-oldenburg.de} (AMB)
+\end{flushleft}
+
+
+%%%%%%%%%%%%
+% ABSTRACT %
+%%%%%%%%%%%%
+\section*{Abstract}
+Needs play a key role in many fields of social sciences and humanities, ranging from normative theories of distributive justice to conceptions of the welfare state.
+Over time, different conceptions of what counts as a need (i.\,e., what is considered a normatively relevant need) have been proposed.
+Many of them include (in one way or the other) needs for survival, decency, belonging, and autonomy.
+Little work has been done on how these kinds of needs are evaluated in terms of their significance for distributive justice.
+To begin closing this gap, we investigate the role of the four aforementioned kinds of needs for impartial observers.
+We do so in two empirical studies.
+The first study asks participants to evaluate the importance of each of the four kinds of needs separately.
+We find that different levels of importance are attributed to the kinds of needs, which places them in a hierarchy.
+The second study asks participants to make distributive decisions.
+Results further support the hierarchy found in the first study and, additionally, reveal that participants tend to make coherent allocation decisions.
+
+% \linenumbers
+
+
+%%%%%%%%%%%%%%%%
+% INTRODUCTION %
+%%%%%%%%%%%%%%%%
+\section*{Introduction}\label{sec:introduction}
+Imagine you were living in a cottage heated exclusively with firewood.
+Spring has given way to summer, summer has given way to autumn---and temperatures are starting to fall.
+Winter is coming, and, unfortunately, you are short on firewood.
+Now imagine that without additional firewood it would get so cold in your hut that you would probably become life-threateningly ill.
+
+In this case, your physical integrity---something that pretty much all authors can agree counts as a basic need---is seriously threatened.
+Such needs have played a role in philosophy since antiquity,\footnote{See, e.\,g., \cite{poelzler_basic_2021}, who interprets Aristotle's reflections on \textgreek{ἀναγκαῖον} in his \textit{Metaphysics} as related to basic needs; \cite[1015a20--1015b15]{aristotle_metaphysics_1933}.} they feature in the \textit{Acts of Luke}, when the Christian community is described,\footnote{See \cite[p. 141f.]{luke_apostelgeschichte_2016} and \cite[p.~302f.]{bauer_gerechtigkeit_2019}.} and they have repeatedly been emphasized in the history of thought.\footnote{Famously, e.\,g., by \cite{marx_kritik_1969}.}
+In the last century, psychology\footnote{See, e.\,g., \cite{maslow_theory_1943,alderfer_existence_1972}.} and philosophy,\footnote{See, e.\,g., \cite{thomson_need_1987,miller_principles_1999,hamilton_political_2003}; for overviews see \cite{brock_needs_2019,miller_needs_2020,siebel_need-based_2020,poelzler_basic_2021}.} among some other fields,\footnote{For perspectives from philosophy, psychology, sociology, political science, and economics, see \cite{kittel_need-based_2020}.} found new interest in the topic, and needs have gained new weight as a cornerstone of the welfare state.\footnote{See, e.\,g., \cite{esping-andersen_three_1990}.}
+
+Authors have developed countless theories on what counts as a basic need.
+Few things obtain such a unanimous approval as physical integrity as described above.
+In the course of this paper, we identify a \textit{hierarchy} of four kinds of needs that recur in the literature: survival, decency, belonging, and autonomy.
+We ask whether these needs are perceived as having different degrees of importance (first indications that this might indeed be the case are provided by a few studies, see \cite{poelzler_typicality_2022,bauer_needs_forthcoming}).
+To test this, we designed and conducted two empirical studies.
+
+The first study elicits absolute need evaluations.
+Here, participants were first given short vignettes presenting our four types of needs in a hypothetical context.
+Each vignette was introduced with an illustration of the hypothetical situation.\footnote{The illustrations were drawn by artist Douwe Dijkstra.}
+Then, for each of them, participants had to indicate how important they consider the need in question to be.
+We find that different levels of importance are attributed to the kinds of needs, effectively placing them in a clear hierarchy.
+
+The second study sheds light on relative need evaluations.
+Here, too, participants were first familiarized with vignettes of the four kinds of needs and the corresponding illustrations.
+They then were presented with cases showing two people.
+Cases varied as to what kind of need the two people experience.
+The participants' task was to distribute a scarce good between these two hypothetical people as impartial decision-makers.
+As an additional within-participants variation, we altered whether both persons contributed equally or unequally to the amount available for distribution.
+This way, we investigate whether productivity has an effect on the decisions.
+Our findings further support the hierarchy we found in the first study.
+Moreover, productivity has an effect on participants' decisions.
+In addition, we are able to observe that our participants’ need evaluations are coherent in terms of adding up.
+
+
+%%%%%%%%%%%%%%
+% LITERATURE %
+%%%%%%%%%%%%%%
+\section*{Literature review}\label{sec:literature}
+As recent research has pointed out (see, e.\,g., \cite{kittel_impact_2020,bauer_need_2022}), needs are not only relevant for normative reflections, but have also been the subject of numerous empirical studies.
+Think, for example, of early empirical social choice (see, e.\,g., \cite{yaari_dividing_1984}) and what followed from it (for a review, see \cite{gaertner_empirical_2012}).
+At least since the beginnings of motivational psychology (see, e.\,g., \cite{williams_multi-dimensional_1989}) they are also to be found in the field of psychology (for a review, see \cite{diederich_identifying_2020}).
+Population surveys have also revealed that basic needs play a role in people's ideas of justice (see, e.\,g., \cite{reeskens_equity_2013,hulle_measuring_2018}).
+Incentivized economic experiments have shown that needs influence the subjects' decisions (see, e.\,g., \cite{branas_poverty_2006,cappelen_needs_2013}).
+There were also attempts to bring real needs into the laboratory (see, e.\,g., \cite{kause_selfish_2018}).
+Hence, our studies and their implications regarding the concept of need potentially touch on many different fields of research.
+
+The concept of need has been defined in different ways.
+Generally, needs may be attributed by the locution ``\textit{S} needs \textit{x} in order to $\Phi$''.
+In the context of justice, the expression at \textit{S} typically refers to persons, but we may equally think of households, companies, and so forth.
+The term at \textit{x} designates the object of a need, viz., the thing needed.
+This can be a material resource, but also other goods, such as personal relationships.
+The expression at $\Phi$ stands for the goal to be achieved with the object of the need, which may be an action, a status, an opportunity, and so forth.
+In any case, by claiming that \textit{S} needs \textit{x} in order to $\Phi$, it is stated that \textit{x} is \textit{necessary} for \textit{S} to achieve $\Phi$.
+
+A need claim can be \textit{purely instrumental}, such as ``She needs a hammer in order to knock in the nail''.
+Such a claim is morally neutral in itself; its moral relevance depends, among other things, on the moral relevance of the goal involved.
+Many authors differentiate such instrumental needs from \textit{categorical} (absolute or intrinsic) ones.
+Categorical needs are distinguished from mere wants, wishes, or desires---either through some objective criterion (see, e.\,g., \cite{brock_needs_2005,thomson_fundamental_2005,weale_needs_1998,wringe_needs_2005}) or through some inter-subjective process (see, e.\,g., \cite{kelsen_was_2016,hamilton_political_2003,miller_principles_1999}). 
+Furthermore, they are assumed to bear a normative force since their aim is regarded as something that ought to be realized.
+In other words, they are taken to be ``necessary, indispensable, or inescapable, at least with respect to some important goals'' \cite[par. 37]{brock_needs_2019}.
+The overarching goal most commonly used to characterize categorical needs is avoidance of harm, or in positive terms, living a decent life (see, i.\,a., \cite{frankfurt_necessity_1984,miller_social_1976,miller_principles_1999,thomson_need_1987,thomson_fundamental_2005,wiggins_needs_1987,wiggins_what_1998}).
+
+There are quite a few distinctions between categorical needs to be found in the literature.\footnote{Note that, in the course of history, a variety of lists of such needs have been suggested, specifying what counts as a basic need (e.\,g., \cite{doyal_theory_1991,braybrooke_meeting_1987,nussbaum_aristotelian_1990}).
+Others have opposed these attempts to draw up concrete lists and have instead made \textit{categorizations} of basic needs (e.\,g., \cite{hamilton_political_2003}).}
+Frequently, they are categorized in form of a hierarchy that is based on the priority of satisfying these needs.
+The most noted hierarchy is, arguably, the one of Maslow (see, e.\,g., \cite{maslow_theory_1943}), which is part of his psychological Motivation Theory.
+It is usually represented as a pyramid constituted of, from the bottom up, \textit{physiological} needs, \textit{safety} needs, \textit{social} needs, \textit{esteem} needs, and \textit{self-actualisation} needs.
+Alderfer (see, e.\,g., \cite{alderfer_empirical_1969,alderfer_existence_1972}) modified Maslow's account by differentiating between \textit{existence} needs, \textit{relatedness} needs, and \textit{growth} needs,\footnote{Note also Williams, who considers safety, belonging, and esteem \cite{williams_multi-dimensional_1989}.} developing the ``Existence, Relatedness, and Growth Need Questionnaire'' that was used, e.\,g., by Rauschenberger and colleagues \cite{rauschenberger_test_1980}.
+Roughly, existence needs combine Maslow's physiological and safety needs, relatedness needs combine social and esteem needs, and growth needs can be identified with self-actualisation needs.\footnote{Moreover, the idea of multidimensional poverty indices can be interpreted as representing different kinds of needs (on the relationship between poverty and need, see \cite{carthaigh_need_2014}, for multidimensional measurement of need-based justice, see \cite{bauer_sated_2018,bauer_sated_2022}). In medical and care contexts there is also use of differentiations between needs (see, e.\,g., \cite{hornquist_concept_1982,cleary_patient_2006,vlachantoni_measuring_2011,glorney_domains_2010}).}
+Alderfer's hierarchy thus resembles the distinction between \textit{vital} needs, \textit{social} needs, and \textit{agency} needs by Hamilton \cite{hamilton_political_2003,de_bruin_human_2009}.
+
+Assigning top priority to needs directed at the very existence, such as food, shelter and sleep, is at the heart of the Basic Needs Approach \cite{jolly_world_1976,ghai_basic_1978}.
+Moreover, it is a common thread in philosophical accounts (e.\,g., \cite{braybrooke_meeting_1987,wiggins_needs_1987,wiggins_what_1998}), probably because such needs promise the highest objectivity and, due to their vital importance, the greatest moral significance.
+Nonetheless, only a minority of scholars put their focus on them (e.\,g., \cite{daniels_just_1985}).
+It is much more common to hold that there are basic needs beyond the biological minimum not to be ignored just because existence comes first.
+Such needs are often derived by asking what is necessary to function in social groups (e.\,g., \cite{braybrooke_meeting_1987,thomson_need_1987,wiggins_what_1998}) or our ability to function as human agents (e.\,g., \cite{copp_equality_1998,gewirth_reason_1978,oneill_rights_1998,shue_basic_1996}), as Brock and Miller summarize \cite{brock_needs_2019}.
+Along these lines, Miller argues that ``[h]uman beings are social as well as biological creatures'' and takes ``basic needs'' to be the ``conditions for a decent human life in any society'' while ``societal needs'' are the additional ``requirements for a decent life in the particular society to which the person belongs'' \cite[3]{miller_national_2007}.
+
+Regardless of whether those needs are aptly named basic or not, we want to integrate them into our study.
+Following Alderfer's distinction between relatedness needs and growth needs, we divide them into needs for social belonging and needs for autonomy, such as the need for self-actualization by creative work.
+The latter echoes Hamilton's agency needs, which include autonomy, recognition, and creative expression.
+In line with most of the literature, we assume that social belonging and autonomy needs possess lower priority than needs for mere survival.
+Furthermore, under the general heading of needs for a decent life, we interpose the need not to feel cold.
+Of course, not feeling cold is merely one aspect of a decent life.
+But since the concept of a ``decent life'' is too broad and not feeling cold is a central and vivid aspect of a decent life, we make use of this description.
+In this sense, we take not feeling cold to be a paradigm ingredient of a decent life.
+In decreasing priority, we thus distinguish four kinds of needs:
+
+\begin{itemize}
+   \item needs for mere survival,
+   \item needs for a decent life,
+   \item needs for social belonging, and
+   \item needs for autonomy.
+\end{itemize}
+
+Those kinds are not to be understood as mutually exclusive.
+As Hamilton has already put it (regarding his own typology): ``the boundaries between the [\ldots] categories are necessarily porous'' \cite[p. 23]{hamilton_political_2003}.
+
+While there are no studies that explicitly test the philosophical considerations outlined above, empirical tests of Maslow's theory emerged quickly.
+A large number of these originated before the 1980s in the field of organisational psychology.
+Most of these studies only find marginal support for his theory (see, e.\,g., \cite{hall_examination_1968,payne_factor_1970,roberts_factor_1971,lawler_causal_1972,herman_managerial_1973,waters_factor_1973}; for overviews see \cite{wahba_maslow_1976,mitchell_measurement_1976}).
+
+Methodologically, the aforementioned studies often assess satisfaction scores or need strength scores of participants in a working environment, many making use of the ``Porter Need Satisfaction Questionnaire'' \cite{porter_study_1961}.
+In retrospect, it is astonishing that a large part of research on something as fundamental as basic human needs was primarily conducted not in a general setting but restricted to the workspace.
+We chose another path by utilizing hypothetical vignettes to analyze the importance ascribed to different kinds of needs.
+This takes place, in part, in the wake of the growing experimental social choice literature which goes back to the investigations of distributive choices (e.\,g., by \cite{yaari_dividing_1984,frohlich_choices_1987}).
+For overviews see, e.\,g., \cite{konow_which_2003,traub_friedman_2005,konow_is_2009,gaertner_empirical_2012}.
+Vignettes have been used famously, e.\,g., by \cite{dahl_does_1999,kahneman_prospect_1979}, or recently in experimental philosophy, e.\,g., by  \cite{knobe_intentional_2003_a,knobe_intentional_2003_b}.
+For use in justice research see, i.\,a., \cite{kahneman_fairness_1986,blinder_shred_1990,levine_fairness_1993}; for use in need contexts, see, e.\,g., \cite{bauer_zur_2019}.
+Insightful reflections on using empirical studies to investigate justice evaluations are to be found in \cite{miller_distributive_1992,elster_empirical_1995,levitt_what_2007}.
+Also see \cite{bauer_philosophie_2019,bauer_empirical_2020}.
+Gaertner and Schokkert carefully address methodological issues regarding empirical social choice using laboratory and survey experiments (see \cite{gaertner_empirical_2012}).
+They also discuss the pros and cons of (not) using monetary incentives in order to elicit justice and distributional preferences.
+While game-theoretic experiments make predictions about \textit{actual} behavior, which is to some extent driven by self-interest, they underline that the aim of empirical social choice is to derive information about people's \textit{norms}.
+As Konow puts it, vignette studies ``provide a contextual richness that is better suited'' than incentivized experiments to study fairness judgments embedded in real social institutions \cite[p. 109]{konow_is_2009}.
+Another argument against using financial incentives in our study are experimenter demand effects (EDEs), i.\,e., participants might also be induced by payoffs to respond in a way that confirms the experimenter's hypothesis if it is known \cite{zizzo_experimenter_2010}.
+\cite{mummolo_demand_2019} shows that hypothetical survey experiments are robust against EDEs.
+Most importantly, however, EDEs are reduced by minimizing interaction between experimenter and participants and not announcing a hypothesis (see \cite{de_quidt_measuring_2018}), as in our study.
+
+In this strand of literature, there are only very few to no experiments on distributive decisions implementing different kinds of needs.
+Some vary contexts that might in turn be interpreted as representing different spheres of need.
+These variations are rather extreme, though, so that comparability amongst them is at risk: For example, some use food and medicine in a catastrophy and non-catastrophy variation \cite{scott_whats_2009}, others use trade-offs between ``helping a handicapped person or teaching intelligent children'', giving ``financial aid to starving people in Subsaharan Africa versus an environmental programme in the home country'' of a participant, or ``a set of measures for rapid economic reconstruction at the expense of some basic human rights and a slower economic recovery going hand in hand with a full restoration of these human rights'' \cite[p. 630]{gaertner_equity_2007}.\footnote{Also see, i.\,a., \cite{konow_fair_2001,konow_which_2003,gaertner_equity_2007,schwettmann_trading_2009}.}
+Here, the differences between contexts are so large that it is impossible to tell whether differences found between them are due to the different kinds of needs or due to other factors in the varying contexts.
+An exception is provided by Bauer and Romann, who systematically varied the kinds of needs, but did not find any influence of the different kinds in a hypothetical distribution task \cite{bauer_needs_forthcoming}.\footnote{Prior to this, Bauer argued for the importance of differentiating kinds of need, originally in the context of measuring need-based distributive justice, but also---on a side-note---extending to empirical research on need-based distributive justice \cite{bauer_sated_2018,bauer_sated_2022}.}
+
+In summary, despite the extensive research inspired by Motivation Theory, there seems to be little to no systematic research on different kinds of needs in the context of distributive justice.
+Those few that touch upon this topic vary kinds of needs rather unsystematically.
+We therefore want to study the impact of different kinds of needs on distributive decisions made by impartial observers.
+The main contributions of this paper to the existing social-choice literature discussed above are as follows:
+In Study 1, using absolute evaluations of the importance of the four kinds of needs, we show that there is a clear hierarchy among them.
+In Study 2, using the relative ratings, we confirm the hierarchy among the kinds of needs and show how accountability in terms of productivity differences interacts with the relative evaluations of need.
+
+Moreover, in the further course of this paper, we will also investigate how coherent the hypothetical decisions of our participants are.
+Our understanding of coherence is derived from the philosophical coherence theory of justification.
+According to this theory, a system of beliefs is more justified the more its elements cohere, where coherence does not only mean consistency but also hanging or fitting together.
+There is a debate on the exact relations governing coherence, but it is generally accepted that \textit{entailment} positively contributes to it, whereas \textit{contradiction} has a negative influence (cf. \cite{bonjour_structure_1985,lehrer_theory_1990,thagard_coherence_2000}).
+For example, if $A$ and $B$ imply $C$, then there is, \textit{ceteris paribus}, more coherence than in cases where $A$ and $B$ contradict $C$.
+When it comes to beliefs about magnitudes, this means that values should add up.
+Consider a person who thinks that Anne is $2$ inches taller than Ben, and Ben $3$ inches taller than Clare, but also thinks that Anne is $4$ inches taller than Clare.
+Then her beliefs fit together less than the beliefs of a person who agrees with the first two assumptions but additionally believes that Anne is $5$ inches taller than Clare.
+For ``Anne is $2$ inches taller than Ben'' and ``Ben is $3$ inches taller than Clare'' contradict ``Anne is $4$ inches taller than Clare'', whereas they imply ``Anne is $5$ inches taller than Clare''.
+In this spirit, we will examine whether the differences in priority assigned to our four kinds of needs add up.
+
+
+%%%%%%%%%%%
+% STUDY 1 %
+%%%%%%%%%%%
+\section*{Study 1}\label{sec:study_1}
+
+
+%%%%%%%%%%
+% DESIGN %
+%%%%%%%%%%
+\subsection*{Design}\label{sec:study_1_design}
+In our first study, participants are asked to evaluate the importance of our four kinds of needs in absolute terms.
+We take a two-stage approach:
+First, participants are given an overview of the different kinds of needs.
+Second, they evaluate each kind separately and on a scale that relates directly to the kinds' importance.
+In order to control for ordering effects, participants are randomly assigned ex-ante to one of $24$ possible sequences of the four kinds of needs.
+Note, however, since participants who can not answer more than one control question (as explained below) are excluded from further participation, the number of observations per sequence is not exactly balanced ex-post.
+
+In the first stage, we ask them to imagine four people with different names (that are randomly drawn from a pool of common German surnames).
+All four are in need of firewood for different reasons respectively.
+In all four instances, the need is not merely instrumental, but is regarded as having normative weight, as has been shown in the \nameref{sec:literature}.
+Below each other, the four people and their respective needs are introduced with an illustration (see Fig~\ref{fig:illu}) and a short vignette (see \nameref{sec:app_study_1_instructions} for wording).
+
+\begin{figure}[ht!]
+   \begin{subfigure}[t]{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.8\linewidth]{figures/figure_1_a.jpg}
+      \caption{Survival}\label{fig:illu_survival}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[t]{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.8\linewidth]{figures/figure_1_b.jpg}
+      \caption{Decency}\label{fig:illu_decency}
+   \end{subfigure}
+   \begin{subfigure}[t]{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.8\linewidth]{figures/figure_1_c.jpg}
+      \caption{Belonging}\label{fig:illu_belonging}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[t]{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.8\linewidth]{figures/figure_1_d.jpg}
+      \caption{Autonomy}\label{fig:illu_autonomy}
+   \end{subfigure}
+   \caption{\bf Illustrations presented to participants}
+   Figure \ref{fig:illu_survival} shows the Survival Need, Figure \ref{fig:illu_decency} the Decency Need, Figure \ref{fig:illu_belonging} the Belonging Need, and Figure \ref{fig:illu_autonomy} the Autonomy Need. Republished from the original study under a CC BY license, with permission from Douwe Dijkstra, original copyright 2021.
+   \label{fig:illu}
+\end{figure}
+
+In accordance with the classification presented in the \nameref{sec:literature}, participants are told that a person can need the wood either for survival, decency, belonging, or autonomy.
+We present four short vignette texts,\footnote{The vignette's scenario is adapted from Bauer and colleagues \cite{bauer_need_2022}.} each exemplifying one of those kinds of needs: A person can need the wood to
+
+\begin{itemize}
+   \item survive the upcoming winter. This means that if they receive less wood than they need, it will become so cold in their hut that they are very likely to fall life-threateningly ill.
+   \item avoid feeling cold in the upcoming winter. The members of their community agree that one cannot live in dignity if one has to feel cold. If they receive less wood than they need, it becomes unacceptably cold in their hut.\footnote{An anonymous reviewer made the point that the English wording ``not freezing'', and perhaps also ``not feeling cold'', is difficult to distinguish from ``not catching a life-threatening illness''. However, the German wording ``nicht frieren'' clearly refers to a different matter than ``nicht lebensbedrohlich erkranken'' because ``frieren'' (feeling cold) rarely results in a life-threatening illness; it usually refers to an unpleasant but not severe state.}
+   \item be able to participate regularly in the social life of their community in the upcoming winter since it is common practice to meet in the community center and everyone is expected to bring wood to heat it. If they receive less than they need, they will not be able to participate regularly.
+   \item be able to plan their leisure time autonomously, since they usually use their spare time to create art in their studio, which is heated with wood. If they receive less than they need, they won't be able to use their studio regularly.
+\end{itemize}
+
+Following this introduction, in the second stage, the kinds of needs are presented to participants on four separate screens. 
+Here, they are shown the full-sized illustration with a single caption beneath it describing the kind of need once again as follows.
+Note that the denominations used by us (``Survival'', ``Decency'', ``Belonging``, and ``Autonomy'') are not shown to participants.
+
+\begin{itemize}
+   \item \textbf{Survival:} ``$A$ needs the wood to make sure to survive the upcoming winter.''
+   \item \textbf{Decency:} ``$B$ needs the wood in order not to feel cold in the upcoming winter.''
+   \item \textbf{Belonging:} ``$C$ needs the wood to be able to participate regularly in the social life of his community in the upcoming winter.''
+   \item \textbf{Autonomy:} ``$D$ needs the wood to be able to use his studio regularly in the upcoming winter''.
+\end{itemize}
+
+On top of each screen, they are told that they will have to indicate how important they deem the kind of need shown on the page.
+On the bottom, they are asked how much the person needs the wood in the case in question.
+They have to give their answer on a Likert scale from $1$ (``doesn't need the wood at all'') to $7$ (``absolutely needs the wood'') (see \nameref{sec:app_study_1_instructions} for the instructions of Study 1).
+That is, participants indicate how important they consider the satisfaction of the abstract need through a concrete material good.
+Their evaluation is thus conditional on the situation and the material good.
+
+We have purposely chosen this setting although it is remote from the lifeworld of our participants.
+The reason is that they are meant to act as social planners making theoretical decisions without influence from their personal situation.
+We thus need a vignette that is vivid but not part of their everyday life.
+A former study has shown that the given vignette seems to be well-suited for this purpose (see \cite{bauer_need_2022}).
+
+
+%%%%%%%%%%%%%
+% PROCEDURE %
+%%%%%%%%%%%%%
+\subsection*{Procedure}\label{sec:study_1_procedure}
+The study was programmed in oTree (see \cite{chen_otree_2016}) and was conducted online in February 2021 with a sample size of $n=100$.
+Participants were recruited by the professional market research institute respondi for a fee, where they were randomly sampled from respondi's online access panel, stratified by the three characteristics gender, age, and equivalent household net income (see \nameref{tab:app_study_1_quota}).
+The data provider has subjected itself to strict ethical guidelines and is certified according to ISO 20252.
+Participants must actively opt into the panel to then take part in specific surveys voluntarily.
+Since our study is an anonymous standard survey that only uses hypothetical vignettes and assesses uncritical opinions, no additional approval was sought from the ethics commission.
+As suggested, e.\,g., by the United States' \textit{Federal Policy for the Protection of Human Subjects}, to ensure informed consent, participants were told at the beginning of each study that the survey at hand is part of a research project, that participation is voluntary, and that they can drop out at any time.
+They were notified how long the survey would approximately take and that its purpose is to assess personal opinions and judgments.
+They were also informed that their answers will be analyzed and that all data will be stored in an anonymous format so that no participant can be identified (see \nameref{sec:app_study_1_instructions} and \nameref{sec:app_study_2_instructions}).
+They were informed beforehand about their compensation by the panel provider.
+
+At the beginning of the study, they were greeted with a welcome message (see \nameref{sec:app_study_1_instructions}).
+Thereafter, participants had to evaluate the four kinds of needs as described in \nameref{sec:study_1_design} (within-participants design).
+After this task, three control questions were asked to ensure that participants read the vignettes and instructions carefully (see \nameref{sec:app_study_1_control_questions}).
+As had been announced beforehand, only those participants who passed at least two of our control questions were compensated and included in our analysis.
+Failing more than one question led to an immediate exclusion of the participant from the survey.
+The $100$ participants who answered two or three questions correctly were given a sociodemographic questionnaire asking for their age, gender, household net income, political orientation, and sensitivity to cold (see \nameref{sec:app_study_1_additional_questions}).
+They were paid a flat fee of $4.15$ euros for approximately $15$ minutes of their time.
+$31$ participants were excluded from the study after failing to pass control questions.\footnote{Failure rates indicate that our first question was failed more often than the second and third question (Question 1: $41$ of $131$ ($31.30\%$), Question 2: $36$ of $131$ ($27.48\%$), Question 3: $27$ of $131$ ($20.61\%$). Using $\chi^2$ tests, we found that the excluded participants did not diverge from the remaining participants with regard to age and income at a significance level of $5\%$. There is, however, a significant difference (at the $1\%$ level) between men and women when it comes to failure rates (Age: $\chi^2=3.787$, $p=0.436$, Income: $\chi^2=8.511$, $p=0.075$), Gender: $\chi^2=7.238$, $p=0.007$).}
+
+
+%%%%%%%%%%%%%%
+% HYPOTHESIS %
+%%%%%%%%%%%%%%
+\subsection*{Working hypothesis}\label{sec:study_1_hypothesis}
+In light of the theoretical work we looked at in our \nameref{sec:literature}, we suspect that participants ascribe some importance to all four kinds of needs.
+We also suspect that the importance of the kinds of needs that are more basic in theory is evaluated higher on average than the importance of those that are less basic in theory.
+More specifically, in line with psychological Motivation Theory (see, e.\,g., \cite{maslow_theory_1943,alderfer_empirical_1969}) and philosophical considerations (see, e.\,g., \cite{braybrooke_meeting_1987,wiggins_needs_1987,wiggins_what_1998}), we hypothesize that physiological needs (Survival, Decency) receive higher importance ratings than social needs (Belonging) and individual needs (Autonomy).
+If we look at the means ($M$) of importance ratings, we can state as \textbf{Hypothesis 1 (Hierarchy in \textit{M})}:
+
+\begin{equation}
+   M_{Survival}>M_{Decency}>M_{Belonging}>M_{Autonomy}.
+\end{equation}
+
+
+%%%%%%%%%%%
+% RESULTS %
+%%%%%%%%%%%
+\subsection*{Results}
+As hypothesized, the importance of the four kinds of needs was rated quite differently, as shown in Fig~\ref{fig:study_1_bar} and Table~\ref{tab:study1means}.\footnote{Note that for each need type, participants were also allowed to refuse to answer. Therefore, there are only $99$ observations for Decency and Belonging. The same results are obtained for both the importance ratings in Table~\ref{tab:study1means} and the predicted probabilities of the ordered-logit estimation in Table~\ref{tab:ologit} when only including participants who answered all control questions correctly ($n=72$ in Survival, Decency, and Autonomy; $n=71$ in Belonging).}
+The Survival Need scored highest with a mean rating of $6.830$ ($\sigma=0.065$, 95\% CI [$6.701$, $6.959$]), followed by the Decency Need with a mean rating of $5.990$ ($\sigma=0.098$, 95\% CI [$5.796$, $6.184$]).
+Third in line, after a notable drop, is the Belonging Need with a mean rating of $4.051$ ($\sigma=0.155$, 95\% CI [$3.743$, $4.358$]), followed by the Autonomy Need with a mean rating of $3.300$ ($\sigma=0.160$, 95\% CI [$2.982$, $3.618$]).
+Note that the scale is limited to the interval $[1,7]$.
+One could assume that many participants choose the maximum value for Survival, and rightfully so, as $92$ of $100$ participants did.
+For Decency, only $31$ did so.
+With this in mind, we performed pairwise Wilcoxon signed-rank tests to test for the equality of the distributions of importance evaluations between the kinds of needs, which are displayed (together with the respective mean differences) in the lower panel of Table~\ref{tab:study1means}.
+Thus, the comparison of the mean values and the distributions of the importance evaluations clearly confirms Hypothesis 1.\footnote{The order in which the kinds of needs are displayed is randomized and nearly balanced, and therefore should not play a role in the mean importance evaluations. In Study 2, explained below, the absolute importance evaluation is collected using the same procedure as in Study 1, but only after the main task, the distribution decision. Pairwise comparisons of the evaluations of the same kinds of needs between the two studies using a Wilcoxon rank-sum test show no significant differences except for Autonomy, for which the evaluation in Study 2 is even worse than in Study 1 (Survival: $p=0.220$, Decency: $p=0.366$, Belonging: $p=0.677$ Autonomy: $p=0.033$). In Study 2, we also recorded the sequence in which the kinds of needs are presented and their evaluations are collected. Here, no significant differences are found if a need type is presented first or later except for Belonging, which is evaluated slightly more important if presented first (Wilcoxon rank-sum test, Survival: $p=0.873$, Decency: $p=0.278$, Belonging: $p=0.095$, Autonomy: $p=0.934$). Altogether these tests underscore the robustness of the results to ordering effects.}
+
+\begin{figure}[t]
+   \includegraphics[width=\linewidth]{figures/figure_2.pdf}
+   \caption{\bf Mean importance ascribed to the four kinds of needs}
+The figure shows the mean importance ascribed to the four kinds of needs on a scale from $1$ (``does not need the wood at all'') to $7$ (``absolutely needs the wood''). $n=100$.
+   \label{fig:study_1_bar}
+\end{figure}
+
+\begin{table}[ht!]
+\begin{adjustwidth}{0in}{0in}
+\caption{\bf Mean importance ascribed to kinds of needs and differences between them}
+\label{tab:study1means}
+\begin{tabular}{lcccc}\\[0.5ex]\hline
+                & Survival         & Decency          & Belonging        & Autonomy   \\\hline
+   Mean         & $ 6.830$         & $ 5.990$         & $ 4.051$         & $3.300$    \\
+   Std. Dev.    & $ 0.065$         & $ 0.098$         & $ 0.155$         & $0.160$    \\\hline\hline
+   Decency      & $-0.840^{***}$   &                  &                  &            \\
+   Belonging    & $-2.779^{***}$   & $-1.939^{***}$   &                  &            \\
+   Autonomy     & $-3.530^{***}$   & $-2.690^{***}$   & $-0.751^{***}$   &            \\\hline
+\end{tabular}
+\begin{flushleft}
+   Upper panel: Mean of the ascribed importance and Standard Deviation. Lower panel: Mean differences and significance levels of a Wilcoxon matched-pairs signed-rank test on the equality of two distributions. Significance levels: $^{*}$\,$p<0.10$, $^{**}$\,$p<0.05$, $^{***}$\,$p<0.01$. $n=100$ in Survival and Autonomy, $n=99$ in Decency and Belonging.
+\end{flushleft}
+\end{adjustwidth}
+\end{table}
+
+In Table~\ref{tab:ologit}, we present the results of an ordered logit estimation to test the robustness of the previous result with respect to the characteristics of the participants.
+From the top panel, we see that age and gender, as well as sensitivity to cold, do not correlate with the importance ratings of the kinds of needs.
+There is a significant correlation between household net income and importance ratings with respect to Decency (negative) and Autonomy (positive), where the latter correlation is unsurprising given that richer households are more likely to consider self-actualization important.
+Moreover, it is not surprising that more right-wing participants tend to value needs beyond Survival less.\footnote{Empirical studies show that right-wing survey participants believe more strongly in personal responsibility and are less in favor of income redistribution (see., e.\,g., \cite{olivera_preferences_2015,alesina_intergenerational_2018}).}
+Overall, however, the explanatory power of personal characteristics for the evaluation of the four kinds of needs is very low.
+
+\begin{table}[ht!]
+\begin{adjustwidth}{0in}{0in}
+\caption{\bf Ordered logit estimation results}
+\label{tab:ologit}
+\begin{tabular}{ld{3.6}d{3.6}d{3.6}d{3.6}}\hline\\[-1.5ex]
+                                     & \multicolumn{1}{c}{Survival}         & \multicolumn{1}{c}{Decency}          & \multicolumn{1}{c}{Belonging}        & \multicolumn{1}{c}{Autonomy}         \\\hline\hline\\[-1.5ex]
+   Age                               &  -0.009                              &  0.004                               & -0.008                               &  -0.014                              \\
+   \quad $\{\sharp years\}$          &  (0.028)                             & (0.014)                              & (0.011)                              &  (0.013)                             \\[0.5ex]
+   Gender                            &  -0.469                              & -0.389                               &  0.235                               &  -0.077                              \\
+   \quad $\{0=female,1=male\}$       &  (0.829)                             & (0.416)                              & (0.461)                              &  (0.433)                             \\[0.5ex]
+   Household Net Income              &   0.405e^{-4}                        & -9.52e^{-6***}                       & -4.31e^{-6}                          &   3.73e^{-6**}                       \\
+   \quad $\{euros\}$                 &  (1.21e^{-4})                        & (3.55e^{-6})                         & (2.65e^{-6})                         &  (1.78e^{-6})                        \\[0.5ex]
+   Political Attitude                &   0.081                              & -0.014^{***}                         & -0.004                               &  -0.009^{**}                         \\
+   \quad $\{1,\ldots,7\}$            &  (0.217)                             & (0.005)                              & (0.005)                              &  (0.004)                             \\[0.5ex]
+   Sensitivity to Cold               &  -0.150                              & -0.183                               &  0.143                               &   0.108                              \\
+   \quad $\{1,\ldots,7\}$            &  (0.217)                             & (0.137)                              & (0.182)                              &  (0.149)                             \\[0.5ex]\hline\\[-1.5ex]
+   $n$                               & 100                                  & 99                                   & 99                                   & 100                                  \\
+   Wald $\chi^2$                     &   1.69                               & 14.47^{**}                           &  5.38                                &  19.01^{***}                         \\
+   Pseudo-$R^2$                      &   0.027                              &  0.021                               &  0.007.                              &   0.010                              \\[0.5ex]\hline\\[-1.5ex]
+   \multicolumn{5}{c}{Predicted Probabilities}                                                                                                                                             \\\hline
+   $7$ (``absolutely'')              &  91.94                               & 31.31                                &  7.19                                &   5.96                               \\
+                                     & \multicolumn{1}{c}{[91.23, 92.65]}   & \multicolumn{1}{c}{[29.75, 32.87]}   & \multicolumn{1}{c}{[6.84, 7.53]}     & \multicolumn{1}{c}{[5.60, 6.32]}     \\[0.5ex]
+   $6$                               &   3.01                               & 48.91                                &  7.24                                &   1.98                               \\
+                                     & \multicolumn{1}{c}{[2.76, 3.26]}     & \multicolumn{1}{c}{[48.35, 49.46]}   & \multicolumn{1}{c}{[6.95, 7.54]}     & \multicolumn{1}{c}{[1.88, 2.09]}     \\[0.5ex]
+   $5$                               &   2.02                               & 10.95                                & 25.53                                &  12.91                               \\
+                                     & \multicolumn{1}{c}{[1.84, 2.20]}     & \multicolumn{1}{c}{[10.33, 11.57]}   & \multicolumn{1}{c}{[24.90, 26.16]}   & \multicolumn{1}{c}{[12.33, 13.49]}   \\[0.5ex]
+   $4$                               &   2.03                               &  5.83                                & 30.15                                &  22.98                               \\
+                                     & \multicolumn{1}{c}{[1.84, 2.21]}     & \multicolumn{1}{c}{[5.33, 6.33]}     & \multicolumn{1}{c}{[29.97, 30.34]}   & \multicolumn{1}{c}{[22.46, 23.50]}   \\[0.5ex]
+   $3$                               &   1.01                               &  3.01                                & 10.89                                &  20.18                               \\
+                                     & \multicolumn{1}{c}{[0.91, 1.10]}     & \multicolumn{1}{c}{[2.68, 3.33]}     & \multicolumn{1}{c}{[10.59, 11.17]}   & \multicolumn{1}{c}{[20.03, 20.32]}   \\[0.5ex]
+   $2$                               &   0                                  &  0                                   & 12.94                                &  23.04                               \\
+                                     &                                      &                                      & \multicolumn{1}{c}{[12.40, 13.48]}   & \multicolumn{1}{c}{[22.30, 23.78]}   \\[0.5ex]
+   $1$ (``not at all'')              &   0                                  &  0                                   &  6.06                                &  12.94                               \\
+                                     &                                      &                                      & \multicolumn{1}{c}{[5.72, 6.40]}     & \multicolumn{1}{c}{[12.20, 13.67]}   \\[0.5ex]\hline\\[-1.5ex]
+\end{tabular}
+\begin{flushleft}
+   The table reports the results of an ordered logit estimation with robust standard errors by kind of need. Endogenous variable: importance evaluation ($\{1,\ldots, 7\}$). Upper panel: first row: coefficients, second row: standard errors in parentheses. Significance levels: $^{*}$\,$p<0.10$, $^{**}$\,$p<0.05$, $^{***}$\,$p<0.01$. Lower panel: predicted probabilities of the respective importance evaluation by kind of need, first row: means, second row: 95\% confidence intervals.
+\end{flushleft}
+\end{adjustwidth}
+\end{table}
+
+The lower panel of Table~\ref{tab:ologit} shows the probabilities of the respective importance evaluation computed from the ordered logit estimation separately for the four kinds of needs.
+It is evident that also when controlling for personal characteristics, survival needs are clearly evaluated as most important (almost $92\%$ of participants choose the highest category, i.\,e., $7$).
+Decency needs are also evaluated as very important, with the median and mode being category $6$ (almost $49\%$ of participants).
+Belonging needs show a significantly higher dispersion of evaluation, with the median and mode right in the middle category $4$ (slightly more than $30\%$), i.\,e., participants are much less unanimous about the importance of Belonging.
+The greatest dispersion or dissent is found in Autonomy.
+Here, the median is category $3$ ($20\%$) and the mode is $4$ ($23\%$).
+Overall, the hierarchy of needs suggested by Hypothesis 1 is confirmed and, in addition, greater dissent among participants is evident for less important needs.
+
+
+%%%%%%%%%%%
+% STUDY 2 %
+%%%%%%%%%%%
+\section*{Study 2}\label{sec:study_2}
+
+
+%%%%%%%%%%
+% DESIGN %
+%%%%%%%%%%
+\subsection*{Design}
+For our second study, we join the vignette of Study 1 with a vignette by Bauer and colleagues (see \cite{bauer_need_2022}).
+There, participants are asked to imagine two hypothetical persons.
+Their names are drawn randomly from a list of common German surnames.
+In the following, we simply refer to them as ``Person A'' and ``Person B''.
+Person A and Person B are both in need of firewood.
+Their community allows them to chop wood in the community's forest for a certain period of time, which is the only way for Person A and Person B to get firewood, since both have little money.
+
+In the fashion of Study 1, we alter the vignette by adding the four different kinds of needs that Person A and Person B can experience.
+Participants are introduced to those four kinds at the study's beginning.
+As in Study 1, each vignette (see \nameref{sec:app_study_2_instructions} for wordings) is presented next to a picture that illustrates the kind of need in question (see Fig~\ref{fig:illu} again).
+
+Subsequent to this introduction, participants are introduced to their task, which is to distribute an endogenously given number of logs---described as the total amount of wood both have chopped---among Person A and Person B in a way participants think to be most just.
+They are made aware that in doing so they will have to make trade-offs between Person A and Person B; the more wood they give to one person, the less they can give to the other.
+Additionally, we revealed that it would not be possible to completely meet the needs of both persons at the same time, as the available amount of wood was just about enough to completely cover the needs of one of the two persons; the other person would in that case end up empty-handed.
+In case a person receives less wood than they need, the person will suffer certain consequences, depending on the kind of need they experience.
+Participants were further informed that they would distribute the wood in advance without knowing exactly how cold the winter will actually be.
+This is why we describe the possible effects of the upcoming winter on the respective person as ``more or less likely''.
+
+The design of Study 2 is schematized in Fig~\ref{fig:study_2_design}.
+As displayed there, each participant has to make a total of $14$ different allocation decisions, denoted as \textit{Cases} in the following.
+For each case, they have to decide how much wood to give to Person A and Person B.
+Those $14$ cases are split into two different \textit{Scenarios} with $7$ cases each.
+This within-participants variation alters whether or not Person A and B have chopped the same amount of wood.
+In the \textit{Equal Productivity Scenario}, Person A and Person B have chopped $500$ logs each, in the \textit{Unequal Productivity Scenario}, Person A has only chopped $200$ logs, while Person B has chopped $800$ logs.
+Note that the total amount of logs is constant over every case and over both scenarios.
+We randomize whether participants started with the Equal Productivity Scenario or the Unequal Productivity Scenario.
+For each participant, we further randomize the order of appearance of the seven cases in each scenario.
+
+\begin{figure}[t]
+   \includegraphics[width=\linewidth]{figures/figure_3.pdf}
+   \caption{\bf Design of Study 2}
+   \label{fig:study_2_design}
+\end{figure}
+
+The seven cases themselves vary what Person A and Person B need the wood for (i.\,e., which kind of need they experience).
+Here, we distinguish between \textit{Mixed Cases} and \textit{Paired Cases}.
+In Mixed Cases Person A and Person B experience two different kinds of needs, whereas in Paired Cases they experience the same kind of need.
+While Paired Cases give us a baseline and a consistency check, mixed cases provide us with the differences between the kinds of needs that are in our focus.
+Six of the seven cases a participant sees per scenario are \textit{Mixed Cases}, containing the possible combinations that can be obtained from the four different kinds of needs without creating pairs, as depicted in Table~\ref{tab:combinations}.
+One additional case a participant sees per scenario is---randomly drawn---\textit{one} of the four possible \textit{Paired Cases}, which shows the same pair in both scenarios.
+
+\begin{table}[ht!]
+\begin{adjustwidth}{0in}{0in}
+\caption{\bf Combinations made from Kinds of Needs for each Case of a Scenario}
+\label{tab:combinations}
+\begin{tabular}{ccccccc}\hline
+               & \multicolumn{6}{c}{Case}                                                       \\\cline{2-7}
+      Person   & 1          & 2           & 3          & 4           & 5          & 6           \\\hline\hline
+      A        & Survival   & Survival    & Survival   & Decency     & Decency    & Belonging   \\
+      B        & Decency    & Belonging   & Autonomy   & Belonging   & Autonomy   & Autonomy    \\\hline
+\end{tabular}
+\begin{flushleft}
+   The table shows the combinations made from the four Kinds of Needs for the six Mixed Cases of each Scenario.
+\end{flushleft}
+\end{adjustwidth}
+\end{table}
+
+Between-participants, we implement two different \textit{Formulations} in which we present those descriptions of the different kinds of needs and their consequences either as the avoidance of negative consequences (\textit{Avoidance Formulation}) or as the enablement of good outcomes (\textit{Enablement Formulation}) to check whether possible effects are influenced by the way we present the kinds of needs.
+Half of the participants are assigned to each frame and, hence, every participant only sees one of the two frames.
+
+Each case is presented on a separate screen (see the exemplary task in \nameref{sec:app_study_2_instructions} for an example).
+On every screen, we randomize the position of Person A and Person B and, hence, the according kind of need (see Table~\ref{tab:combinations}), to avoid ordering effects.
+Participants are informed how much wood Person A and Person B have chopped each and in total on each screen.
+In the center of every screen, two illustrations are displayed side by side to highlight the kind of need Person A and Person B exhibit in the displayed case.
+Below each picture, a single sentence additionally makes clear what Person A and Person B need the wood for:
+
+\begin{itemize}
+   \item \textbf{Survival:} ``$A$ $[B]$ needs the wood to avoid life-threatening illness [stay healthy] in the upcoming winter.''
+   \item \textbf{Decency:} ``$A$ $[B]$ needs the wood to avoid feeling cold [have it warm] in the upcoming winter.''
+   \item \textbf{Belonging:} ``$A$ $[B]$ needs the wood in order not to be excluded from [to participate in] social life in the upcoming winter.''
+   \item \textbf{Autonomy:} ``$A$ $[B]$ needs the wood so that their studio does not become unusable [so that they can use their studio] in the upcoming winter.''
+\end{itemize}
+
+Note that, as in our first study, denominations (``Survival'', ``Decency'', ``Belonging'', and ``Autonomy'') are not shown to participants.
+Participants are asked to enter the amount Person A and Person B should receive on a blank line in a sentence below each picture that stated ``$A$ $[B]$ should receive \_\_\_ logs of wood''.
+Here, all available logs have to be distributed by them.
+For an exemplary task, illustrating the task screen's structure, see \nameref{sec:app_study_2_task}.
+
+Mixed Cases, Paired Cases, and Productivity Scenarios are varied within-participants since otherwise only the treatment mean differences and not the mean values of the individual differences could be analyzed.
+Formulations are varied between-participants to keep the number of cases that are presented to participants manageable, hence to avoid fatigue effects, and to prevent contrast effects, which would make it difficult to find out if the wording actually makes a difference.
+
+
+%%%%%%%%%%%%%
+% PROCEDURE %
+%%%%%%%%%%%%%
+\subsection*{Procedure}
+Our study, programmed in oTree \cite{chen_otree_2016}, was conducted online in April 2021.
+The total sample size was $n=200$.
+Participants were recruited via the private market research institute respondi, being randomly sampled from respondi's online access panel, stratified by the characteristics gender, age, and household net income to promote external validity (see \nameref{tab:app_study_2_quota}).
+Sampling rates of these characteristics have been taken from the ``Best for Planning'' study of Germany's \textit{Society for Integrated Communication Research} as representative for the adult German population \cite[p. 284, 291]{gesellschaft_fur_integrierte_kommunikationsforschung_best_2019}.
+
+To control for the heterogeneity of our participants with regard to their sociodemographic backgrounds and justice attitudes, we implemented a post-experimental questionnaire, where participants were asked for their age, gender, household net income, and several justice attitudes after having completed the distribution task.
+Furthermore, they had to state their support for the three different distributive principles of need, equity, and equality, as well as their political orientation, all on 7-point Likert scales.
+Lastly, they were asked how they perceive their own sensitivity to cold (see \nameref{sec:app_study_2_additional_questions} for wordings).
+
+To facilitate internal validity and to ensure that our vignettes and instructions were read thoroughly, participants had to answer three control questions after they completed the distribution task (see \nameref{sec:app_study_2_control_questions} for wordings).
+The final analysis was restricted to those participants who passed at least two of the three questions.
+Those $200$ participants were paid a flat fee of $5.40$ euros, equivalent to an hourly wage of $10.80$ euros.
+$64$ participants were excluded since they failed to pass at least two of our three control questions.
+For them, the survey was terminated after giving two wrong answers and they were asked no further questions.\footnote{Failure rates indicate that our second question was failed more often than the first and third question (Question 1: $83$ of $264$ ($31.44\%$), Question 2: $119$ of $264$ ($45.08\%$), Question 3: $68$ of $264$ ($25.76\%$), see \nameref{sec:app_study_2_control_questions} for the questions' wording). Excluded participants did not diverge from the remaining participants in age, income, or gender at a significance level of $5\%$ (Age: $\chi^2=2.049$, $p=0.727$, Income: $\chi^2=1.657$, $p=0.799$, Gender: $\chi^2=0.047$, $p=0.828$).}
+
+
+%%%%%%%%%%%%%%
+% HYPOTHESES %
+%%%%%%%%%%%%%%
+\subsection*{Working hypotheses}
+A little notation first.
+Let $\mathcal{I}=\{1,2,\ldots,n\}$ denote the set of participants $i$ and $\mathcal{N}=\{\text{(S)urvival}), \text{(D)ecency}, \text{(B)elonging}, \text{(A)utonomy})\}$ the ordered set of the kinds of needs.
+Needs are ordered in terms of decreasing priority as elicited in Study 1, i.\,e., need $S$ is greater than need $D$ and so on.
+The Greek letters $\alpha\in\mathcal{N}$ and $\beta\in\mathcal{N}$ indicate the needs of Person A and Person B, respectively.
+In the relative evaluation task, participant $i$ is endowed with $\ell^i=1000$ logs of wood.
+They assign $0<\ell^i_\alpha\le 1000$ logs to Person A with need $\alpha$ and $\ell^i_\beta=1000-\ell^i_\alpha$ logs to Person B with need $\beta$.
+The relative evaluation of Person A's need $\alpha$ by participant $i$ is hence given by $\Delta^i_{\alpha,\beta}=\ell^i_\alpha-\ell^i_\beta=2\ell^i_\alpha-1000$.
+
+We start with the Equal Productivity Scenario (EPS).
+For \textit{paired} need evaluations $\alpha=\beta$, we expect the mean relative need evaluation to be zero: $\overline{\Delta}^\text{EPS}_{\alpha,\beta}=0$.
+For \textit{mixed} need evaluations $\alpha<\beta$, we expect the mean relative need evaluation to be positive, $\overline{\Delta}^\text{EPS}_{\alpha,\beta}>0$ and to increase in the distance between absolute need evaluations.
+Hence, \textbf{Hypothesis 2 (Hierarchy in $\Delta$)} reads as follows:
+
+\begin{equation}
+   \overline{\Delta}^\text{EPS}_{S,A}>\overline{\Delta}^\text{EPS}_{S,B}>\overline{\Delta}^\text{EPS}_{S,D}>0
+\end{equation}
+
+\noindent and
+
+\begin{equation}
+   \overline{\Delta}^\text{EPS}_{D,A}>\overline{\Delta}^\text{EPS}_{D,B}>0\;.
+\end{equation}
+
+We further assume that participants make coherent distributive decisions.
+A decision is coherent if the differences we observe in mean allocations add up.
+In other words, it is coherent if the difference of two kinds of needs, being not next to each other in the hierarchy, equals the sum of the differences of the kinds of needs that are spanned by the original difference.
+Hence, \textbf{Hypothesis 3 (Coherence)} states:
+
+\begin{equation}
+   \overline{\Delta}^\text{EPS}_{S,A}=\overline{\Delta}^\text{EPS}_{S,B}+\overline{\Delta}^\text{EPS}_{B,A}\;,
+\end{equation}
+
+\begin{equation}
+   \overline{\Delta}^\text{EPS}_{S,A}=\overline{\Delta}^\text{EPS}_{S,D}+\overline{\Delta}^\text{EPS}_{D,A}\;,
+\end{equation}
+
+\begin{equation}
+   \overline{\Delta}^\text{EPS}_{S,A}=\overline{\Delta}^\text{EPS}_{S,D}+\overline{\Delta}^\text{EPS}_{D,B}+\overline{\Delta}^\text{EPS}_{B,A}\;,
+\end{equation}
+
+\noindent and
+
+\begin{equation}
+	\overline{\Delta}^\text{EPS}_{D,A}=\overline{\Delta}^\text{EPS}_{D,B}+\overline{\Delta}^\text{EPS}_{B,A}\;.
+\end{equation}
+
+In the Unequal Productivity Scenario (UPS), the relative need evaluation for pairs $\alpha=\beta$ does not need to be zero if productivity matters.
+In fact, we expect the need evaluation to be lower for the less productive Person A: $\overline{\Delta}^\text{UPS}_{\alpha,\beta}<0$.
+However, we expect the impact of lower productivity on relative need evaluations to decrease with the importance of need.
+Hence, \textbf{Hypothesis 4 (Productivity)} reads as follows:
+
+\begin{equation}
+   0>\overline{\Delta}^\text{UPS}_{S,S}>\overline{\Delta}^\text{UPS}_{D,D}>\overline{\Delta}^\text{UPS}_{B,B}>\overline{\Delta}^\text{UPS}_{A,A}\;.
+\end{equation}
+
+For mixed need evaluations, as in EPS, we expect mean relative need evaluations to increase with the distance between absolute need evaluations and we also expect relative need evaluations to be coherent.
+
+
+%%%%%%%%%%%
+% RESULTS %
+%%%%%%%%%%%
+\subsection*{Results}\label{sec:results}
+We start by taking a look at the Paired Cases---in particular Hypothesis 4---before moving on to the Mixed Cases---in particular Hypothesis 2.
+After looking at the mean differences, we examine the coherence of our participants' decisions (Hypothesis 3) and, finally, present a number of regressions as a robustness check.
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% DIFFERENCES PAIRED %
+%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Mean differences in allocations for Paired Cases}\label{sec:results_mean_paired}
+First, we take a look at the relative need evaluations, i.\,e., the way participants allocated the logs of firewood between the two persons presented to them.
+Since Paired Cases give us a baseline and a consistency check, we start by analyzing them.
+To do so, we calculate the mean of the individual differences (represented by $\overline{\Delta}_{\alpha,\beta}$) of the number of logs participants gave to Person A and Person B in those four cases (see \nameref{tab:app_study_2_mean}).
+
+Fig~\ref{fig:overview_paired} shows the mean differences for the four Paired Cases.
+The bars are differentiated by the two Productivity Scenarios that were presented within-participants.
+We see that in the Equal Productivity Scenario participants by and large distribute equally between Person A and Person B, resulting in a mean difference of (roughly) around $0$.\footnote{Moreover, two-tailed Welch tests do not reject the null hypothesis of equality of mean differences between the kinds of needs. \textit{Survival} vs. \textit{Decency}: $p=0.209$, \textit{Survival} vs. \textit{Belonging}: $p=0.118$, \textit{Survival} vs. \textit{Autonomy}: $p=0.459$, \textit{Decency} vs. \textit{Belonging}: $p=0.352$, \textit{Decency} vs. \textit{Autonomy}: $p=0.162$, \textit{Belonging} vs. \textit{Autonomy}: $p=0.101$.}
+Since both persons have contributed the same amount of wood and exhibit the same kind of need, this is, arguably, the only reasonable default, which is a strong indicator that our participants understood the vignette and task and took it seriously.
+Thus, our expectation $\overline{\Delta}^\text{EPS}_{\alpha,\beta}=0$ is fulfilled for $\alpha=\beta$.
+
+\begin{figure}[t]
+   \includegraphics[width=\textwidth]{figures/figure_4.pdf}
+   \caption{\bf Mean differences for the $4$ Paired Cases by Productivity Scenario}
+   The figure shows the mean relative need evaluations $\overline{\Delta}_{\alpha,\beta}$, $\alpha=\beta$, (i.\,e., differences in allocations to Person A and Person B experiencing the same kind of need)  by Productivity Scenario. $n=200$.
+   \label{fig:overview_paired}
+\end{figure}
+
+However, in the Unequal Productivity Scenario, where Person A has cut $200$ logs and Person B $800$ logs, Person A receives less than Person B, which confirms our expectation $\overline{\Delta}^\text{UPS}_{\alpha,\beta}<0$ for $\alpha=\beta$.
+Interestingly, this depends on the kind of need as hypothesized above by Hypothesis 4 (Productivity).
+If both need the wood for \textit{Survival}, the lower productivity of Person A has hardly any effect, that is, she gets only a little less than Person B although she has cut much less.
+The difference is a bit more pronounced for the second kind of need, \textit{Decency}, and is largest for \textit{Belonging} and \textit{Autonomy}. But even there, Person A still gets significantly more than she has initially contributed. 
+Two-tailed Welch tests confirm these observations (\textit{Survival} vs. \textit{Decency}: $p=0.085$, \textit{Survival} vs. \textit{Belonging}: $p\leq0.001$, \textit{Survival} vs. \textit{Autonomy}: $p=0.004$, \textit{Decency} vs. \textit{Belonging}: $p=0.035$, \textit{Decency} vs. \textit{Autonomy}: $p=0.160$, \textit{Belonging} vs. \textit{Autonomy}: $p=0.551$).
+
+In \nameref{tab:app_study_2_percentage}, we additionally report means of absolute percentage deviations of the share that Person A receives from the share that Person A herself contributed.
+This deviation can be interpreted as a kind of elasticity of need satisfaction for productivity; the larger this deviation, the more important needs are considered.
+In the Equal Productivity Scenario, as would be expected, this fluctuates around roughly $1\%$.
+In the Unequal Productivity Scenario, on the other hand, we get a benchmark for the marginal effect of productivity for the same kinds of needs.
+This is a first measure of the importance of the different kinds of needs.
+The more productivity matters, the less the equality of needs matters.
+The difference is highest for \textit{Survival} ($10.556\%$), followed by \textit{Decency} ($9\%$), \textit{Autonomy} ($7.486\%$), and \textit{Belonging} ($6.791\%$).
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% DIFFERENCES MIXED %
+%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Mean differences in allocations for Mixed Cases}\label{sec:results_mean_mixed}
+Next, we consider the Mixed Cases.
+Again, we calculate the mean relative need evaluation in terms of the individual differences of the number of logs participants gave to Person A, experiencing one kind of need, and Person B, this time experiencing another, less basic, kind of need (see \nameref{tab:app_study_2_mean}).
+
+Fig~\ref{fig:overview_mixed} presents the mean relative need evaluation for the six possible Mixed Cases that can be made with Person A and Person B experiencing different kinds of needs, again by Productivity Scenario.
+As suspected, in both Productivity Scenarios, the relative need evaluations are positive (except for \textit{Belonging -- Autonomy} in the Unequal Productivity Scenario) and furthermore, it becomes apparent that in the Unequal Productivity Scenario the mean evaluations are smaller than in the Equal Productivity Scenario for every combination.
+In \nameref{tab:app_study_2_mean}, we report the respective two-tailed Welch's t-tests for the difference between the Productivity Scenarios confirming that relative need evaluations for all cases are significantly lower in the Unequal Productivity Scenario.
+
+\begin{figure}[t]
+   \includegraphics[width=\textwidth]{figures/figure_5.pdf}
+   \caption{\bf Mean differences for the $6$ Mixed Cases by Productivity Scenario}
+   The figure shows the mean relative need evaluations $\overline{\Delta}_{\alpha,\beta}$, $\alpha<\beta$, (i.\,e., differences in allocations to Person A and Person B, experiencing different kinds of needs) by Productivity Scenario. $n=200$.
+   \label{fig:overview_mixed}
+\end{figure}
+
+We see, as postulated by Hypothesis 2 (Hierarchy), that the mean relative need evaluation increases with the distance between the absolute need evaluations.
+If Person A needs \textit{Survival} and Person B ``only'' needs \textit{Autonomy}, the relative need evaluation (combined over EPS and UPS) is highest and greater than if B has a \textit{Belonging} need ($p=0.008$) or \textit{Decency} need ($p\leq0.001$), and the relative need evaluation \textit{Survival -- Decency} is also greater than \textit{Survival -- Belonging} ($p\leq0.001$, two-tailed Welch t-tests).
+Analogously, if Person A has a \textit{Decency} need, the relative need evaluation of \textit{Decency -- Autonomy} is greater than \textit{Decency -- Belonging} ($p=0.001$, two tailed Welch t-test).
+Thus, consistent with the literature, it can be concluded that there is a clear hierarchy of the four kinds of needs in which \textit{Survival} comes before \textit{Decency}, \textit{Decency} comes before \textit{Belonging}, and \textit{Belonging} comes before \textit{Autonomy}.
+
+
+%%%%%%%%%%%%%%
+% SUMMATION  %
+%%%%%%%%%%%%%%
+\subsubsection*{Summation of allocations}\label{sec:results_additivity}
+In addition to the hierarchy observed above, we assume that rational people make coherent relative need evaluations when distributing resources among people who experience different kinds of needs.
+As has been noted in connection with Hypothesis 3 (Coherence), we speak of coherent relative need evaluations when they add up.
+This is given if the relative need evaluation ($\Delta_{\alpha,\beta}$) of two kinds of needs, being not next to each other in the hierarchy, equals the sum of the relative need evaluations that are spanned by the original relative need evaluation.
+
+\begin{figure}[t]
+   \includegraphics[width=\textwidth]{figures/figure_6.pdf}
+   \caption{\bf Comparison of importance ratings: Survival -- Autonomy}
+   The figure shows a comparison between the reference case \textit{Survival -- Autonomy} and the possible additions by Productivity Scenario. $n=200$.
+   \label{fig:additivity_all}
+\end{figure}
+
+Figs~\ref{fig:additivity_all}--\ref{fig:additivity_sub_2} indicate that this, indeed, seems to be the case.
+In Fig~\ref{fig:additivity_all}, the first bar shows the difference of the case \textit{Survival -- Autonomy} as reference, both in the Equal and the Unequal Productivity Scenario.
+The following three bars then show the three possible additions, as introduced in Equations (3) and (5), above.
+In Fig~\ref{fig:additivity_sub_1}, the first bar shows the case \textit{Decency -- Autonomy} as reference, again both for the Equal and the Unequal Productivity Scenario, followed by the analogous addition of \textit{Belonging -- Autonomy} and \textit{Decency -- Belonging} in the next bar.
+In Fig~\ref{fig:additivity_sub_2}, the first bar shows the case of \textit{Survival -- Belonging}, once more for both the Equal and the Unequal Productivity Scenario, followed by the analogous addition of \textit{Decency -- Belonging} and \textit{Survival -- Decency} in the second bar.
+
+\begin{figure}[t!]
+   \includegraphics[width=\textwidth]{figures/figure_7.pdf}
+   \caption{\bf Comparison of importance ratings: Decency -- Autonomy}
+   The figure shows a comparison between the reference case \textit{Decency -- Autonomy} and the possible addition by Productivity Scenario. $n=200$.
+   \label{fig:additivity_sub_1}
+\end{figure}
+
+\begin{figure}[ht!]
+   \includegraphics[width=\textwidth]{figures/figure_8.pdf}
+   \caption{\bf Comparison of importance ratings: Survival -- Belonging}
+   The figure shows a comparison between the reference case \textit{Survival -- Belonging} and the possible addition by Productivity Scenario. $n=200$.
+   \label{fig:additivity_sub_2}
+\end{figure}
+
+To assess whether or not the references and the additions differ significantly from each other in the sum of relative need evaluations, we ran a number of one-way ANOVAs with Bonferroni correction; one for every Productivity Scenario regarding the combinations shown in Fig~\ref{fig:additivity_all} (Equal Productivity Scenario: $F(3,796)=2.24$, $p=0.083$, Unequal Productivity Scenario: $F(3,796)=2.82$, $p=0.038$) as well as regarding the combinations shown in Fig~\ref{fig:additivity_sub_1} (Equal Productivity Scenario: $F(1,398)=0.320$, $p=0.571$, Unequal Productivity Scenario: $F(1,398)=8.010$, $p=0.005$) and \ref{fig:additivity_sub_2} (Equal Productivity Scenario: $F(1,398)=3.240$, $p=0.073$, Unequal Productivity Scenario: $F(1,398)=0.610$, $p=0.437$).
+The ANOVAs indicate that the additions have total values that do not differ significantly from the reference values, except for the addition of \textit{Decency -- Belonging} and \textit{Belonging -- Autonomy} compared to the reference of \textit{Decency -- Autonomy} in the Unequal Productivity Scenario (with $p=0.005$, see Fig~\ref{fig:additivity_sub_1}).
+
+Although most of the differences between the combinations of need comparisons are insignificant and, therefore, coherence cannot be rejected, a certain response pattern seems to emerge.
+In the Equal Productivity Scenario, some combined evaluations exceed the reference case, which increases with the number of comparisons combined (see, in particular, the left panel of Fig~\ref{fig:additivity_all}).
+Analogously, in the Unequal Productivity Scenario, some combined evaluations fall short of the reference case, which also seems to increase when multiple comparisons are combined (see, in particular, the right panel of Fig~\ref{fig:additivity_all}).
+Thus it seems possible that the participants, in the scenario where Persons A and B exhibit the same productivity but different needs, basically grant the person with greater need a kind of ``bonus'' that \textit{accumulates} when several comparisons are combined.
+The Unequal Productivity Scenario creates a situation where (too much) distribution towards the person with greater need is itself perceived as unjust in terms of equity and, therefore, the person with greater need receives a ``malus'' that also accumulates when several comparisons are combined.
+
+An obvious explanation for this decision pattern would be a gain-loss domain effect, such as that postulated by Prospect Theory (see, e.\,g., \cite{kahneman_prospect_1979,tversky_loss_1991}).
+That reference points and loss aversion play a role in distributional decisions of ``social planners'' has been shown by a number of experimental studies (e.\,g., \cite{charite_reference_2022}).
+Bauer and colleagues have shown that high accountability for a lack of resources gives rise to an asymmetry where a disadvantaged person's compensation is significantly smaller when her disadvantage is due to lower productivity instead of greater need (see \cite{bauer_need_2022}).
+Moreover, it has recently been shown in a vignette experiment that need is perceived as a reference point below which the aggregate justice evaluation function is convex and above which the justice evaluation is concave (see \cite{bauer_poorest_2023}).
+
+
+%%%%%%%%%%%%%%%
+% REGRESSIONS %
+%%%%%%%%%%%%%%%
+\subsubsection*{Regressions}\label{sec:results_regressions}
+Finally, as a robustness check, we turn to a number of Tobit panel regressions, reported in Table~\ref{tab:regressions} using the participants' ID as the panel variable and the case number as the time variable.\footnote{In all models considered, a likelihood-ratio test rejects the null hypothesis that the pooled estimator performs as well as the panel model.}
+We focus only on Mixed Cases, since we are mostly interested in Hypothesis 2 (Hierarchy).
+We chose to use Tobit models since our dependent variable---the relative need evaluation for Mixed Cases, i.\,e., the difference between the logs distributed to Persons A with need $\alpha$ and Person B with need $\beta$, $\alpha<\beta$---contains two left censored and $80$ right censored observations.
+In all regressions, the mixed case with the largest relative need evaluation (\textit{Survival -- Autonomy}) serves as our reference category.
+In Model (I), we estimate the relative need evaluations for the six Mixed Cases.
+In Model (II), we interact them with the Productivity Scenario (with Equal Productivity as the reference category).
+The influence of control variables such as Age, Gender, and Household Net Income on the relative need evaluation is examined in Model (III).
+These covariates are reported in \nameref{tab:app_study_2_control_variables}.
+In Model (IV), we interact the Mixed Cases with the Formulation (with Avoidance as the reference category).
+Since the Formulation has no significant effect on the relative need evaluation in Model (IV) and does not improve the model fit in terms of the log likelihood, we omit estimating a fully interacted model.
+Note that the margins (i.\,e., the predicted means of the relative need evaluations for the Mixed Cases) and tests can be taken from \nameref{tab:app_study_2_margins_i} for Model (I) and \nameref{tab:app_study_2_margins_ii} for Models (II)--(IV).
+
+\begin{table}[ht!]
+\begin{adjustwidth}{0in}{0in}
+\caption{\bf Allocation difference between Person A and B: Regression Results}
+\label{tab:regressions}
+{\small
+\begin{tabular}{ld{3.6}d{3.6}d{3.6}d{3.6}}\hline
+   Coefficient                           & \multicolumn{1}{c}{(I)}   & \multicolumn{1}{c}{(II)}   & \multicolumn{1}{c}{(III)}   & \multicolumn{1}{c}{(IV)}   \\\hline\hline
+   Survival – Belonging                  &    -92.99^{***}           &    -99.34^{***}            &   -106.17^{***}             &   -104.4^{***}             \\
+                                         &    (19.57)                &    (26.79)                 &    (26.77)                  &    (28.58)                 \\[0.5ex]
+   Survival – Decency                    &   -298.1^{***}            &   -329.2^{***}             &   -337.9^{***}              &   -299.3^{***}             \\
+                                         &    (19.53)                &    (26.73)                 &    (26.71)                  &    (28.51)                 \\[0.5ex]
+   Decency – Autonomy                    &   -134.3^{***}            &   -127.3^{***}             &   -133.6^{***}              &   -139.5^{***}             \\
+                                         &    (19.56)                &    (26.78)                 &    (26.76)                  &    (28.56)                 \\[0.5ex]
+   Decency – Belonging                   &   -246.4^{***}            &   -233.7^{***}             &   -249.3^{***}              &   -270.6^{***}             \\
+                                         &    (19.54)                &    (26.74)                 &    (26.72)                  &    (28.52)                 \\[0.5ex]
+   Belonging – Autonomy                  &   -416.2^{***}            &   -408.6^{***}             &   -410.9^{***}              &   -411.6^{***}             \\
+                                         &    (19.53)                &    (26.72)                 &    (26.70)                  &    (28.50)                 \\[0.5ex]
+   Unequal Productivity                  &                           &   -134.8^{***}             &   -150.0^{***}              &                            \\
+   \quad (Benchmark: Equal)              &                           &    (26.80)                 &    (28.59)                  &                            \\[0.5ex]
+   Survival – Belonging                  &                           &     12.77                  &     15.31                   &                            \\
+   \quad $\times$ Unequal Productivity   &                           &    (37.81)                 &    (40.32)                  &                            \\[0.5ex]
+   Survival – Decency                    &                           &     62.50^{*}              &     73.11^{*}               &                            \\
+   \quad $\times$ Unequal Productivity   &                           &    (37.73)                 &    (40.23)                  &                            \\[0.5ex]
+   Decency – Autonomy                    &                           &    -13.98                  &    -10.56                   &                            \\
+   \quad $\times$ Unequal Productivity   &                           &    (37.79)                 &    (40.30)                  &                            \\[0.5ex]
+   Decency – Belonging                   &                           &    -25.19                  &    -23.91                   &                            \\
+   \quad $\times$ Unequal Productivity   &                           &    (37.75)                 &    (40.25)                  &                            \\[0.5ex]
+   Belonging – Autonomy                  &                           &    -15.01                  &     -8.33                   &                            \\
+   \quad $\times$ Unequal Productivity   &                           &    (37.72)                 &    (40.22)                  &                            \\[0.5ex]
+   Enablement                            &                           &                            &                             &    -32.01                  \\
+   \quad (Benchmark: Avoidance)          &                           &                            &                             &    (43.68)                 \\[0.5ex]
+   Survival – Belonging                  &                           &                            &                             &     22.85                  \\
+   \quad $\times$ Enablement             &                           &                            &                             &    (39.11)                 \\[0.5ex]
+   Survival – Decency                    &                           &                            &                             &      2.480                 \\
+   \quad $\times$ Enablement             &                           &                            &                             &    (39.04)                 \\[0.5ex]
+   Decency – Autonomy                    &                           &                            &                             &     10.49                  \\
+   \quad $\times$ Enablement             &                           &                            &                             &    (39.10)                 \\[0.5ex]
+   Decency – Belonging                   &                           &                            &                             &     48.44                  \\
+   \quad $\times$ Enablement             &                           &                            &                             &    (39.05)                 \\[0.5ex]
+   Belonging – Autonomy                  &                           &                            &                             &     -9.123                 \\
+   \quad $\times$ Enablement             &                           &                            &                             &    (39.03)                 \\[0.5ex]
+   Constant                              &    465.1^{***}            &    532.3^{***}             &    765.9^{***}              &    481.1^{***}             \\
+                                         &    (21.86)                &    (25.46)                 &   (121.44)                  &    (30.88)                 \\\hline
+   Control variables                     & No                        & No                         & Yes                         & No                         \\\hline
+   $n$                                   &   2400                    &   2400                     &   2196                      &   2400                     \\
+   log likelihood                        & -16624                    & -16550                     & -15101                      & -16622                     \\
+   Wald $\chi^2$                         &    600.020^{***}          &    794.280^{***}           &    826.36^{***}             &    603.90^{***}            \\
+   $\sigma_u$                            &    238.8^{***}            &    239.4^{***}             &    188.5^{***}              &    238.6^{***}             \\
+                                         &    (13.33)                &    (13.27)                 &    (11.64)                  &    (13.32)                 \\
+   $\sigma_e$                            &    274.7^{***}            &    265.3^{***}             &    270.4^{***}              &    274.5^{***}             \\
+                                         &     (4.238)               &     (4.094)                &     (4.369)                 &     (4.235)                \\
+   LR $\chi^2(\sigma_u=0$)               &    876.87^{***}           &    941.10^{***}            &    508.47^{***}             &    876.61^{***}            \\\hline
+\end{tabular}}
+\begin{flushleft}
+   The table reports the results of a Tobit random-effects panel regression. Endogenous variable: relative evaluation of Person A's need ($\Delta_{\alpha,\beta}$). Reference group: Survival -- Autonomy. First row: coefficients, second row: standard errors in parentheses.  Control variables include Age, Gender, and Household Net Income (see \nameref{tab:app_study_2_control_variables}). $2$ ($80$) left-censored (right-censored) observations. Significance levels: $^{*}$\,$p<0.10$, $^{**}$\,$p<0.05$, $^{***}$\,$p<0.01$.
+\end{flushleft}
+\end{adjustwidth}
+\end{table}
+
+Model (I) shows that the mean relative need evaluation of the reference case \textit{Survival -- Autonomy} (i.\,e., the regression constant) is $465.1$.
+This means that Person A with a \textit{Survival} need receives approximately $465$ more logs than Person B with a need for \textit{Autonomy}.
+The estimation coefficients for the other five mixed cases are all significantly negative, i.\,e., the relative need evaluation of Person A is lower.
+The corresponding margins can be found in \nameref{tab:app_study_2_margins_i}.
+The table shows that, as hypothesized, the relative need evaluations of all Mixed Cases are significantly different from zero.
+Wald tests confirm what we have already seen in Fig~\ref{fig:overview_paired}, namely that the relative need evaluation increases with the difference of the absolute need evaluations, which creates a hierarchy of need evaluations (Hypothesis 2).\footnote{Almost identical results are obtained for the regressions reported in Table~\ref{tab:regressions} when only including participants who answered all control questions correctly ($n=116$); in Models (II) and (III), the interaction \textit{Survival -- Decency $\times$ Unequal Productivity} becomes insignificant, while the interaction \textit{Decency -- Belonging $\times$ Unequal Productivity} becomes weakly significant ($p<0.10$).}
+
+Model (II) shows that interacting the Mixed Cases with the Productivity Scenario improves the fit of the regression in terms of the log likelihood.
+Person A's lower productivity has a significant negative impact on her relative need evaluation of about $135$ logs.
+However, except for \textit{Survival -- Decency}, the interaction terms are insignificant, i.\,e., the negative influence of lower productivity applies almost equally to all Mixed Cases.
+Hence, in contrast to the Paired Cases, there is no significant interaction between the absolute importance of Person A's needs and the negative effect of her lower productivity (Hypothesis 4).
+The upper panel of \nameref{tab:app_study_2_margins_ii} contains the margins for both Productivity Scenarios.
+As in Model (I), all relative need evaluations are significantly positive (except for \textit{Belonging -- Autonomy} in the Unequal Productivity Scenario); they are significantly larger in the Equal Productivity Scenario than in the Unequal Productivity Scenario; and they exhibit a clear hierarchy (Hypothesis 2).
+
+In Model (III), we add household net income, gender, and age, as well as political attitude and the importance of productivity, equality, and need, for the participants' decisions as control variables (these covariates are reported in \nameref{tab:app_study_2_control_variables}).
+Of the covariates, only the questions for the importance of need, productivity, and equality as decision criteria are significant.
+Here, stronger emphasis on the importance of productivity leads to a smaller difference between the logs distributed to Persons A and B with a regression coefficient of $-78.36$, so does---to a lesser extent---an emphasis on the importance of equality with a coefficient of $-17.282$.
+Importance of need, then, works in the opposite direction, leading to a larger difference with a coefficient of $23.07$.
+As can be taken from the middle panel of \nameref{tab:app_study_2_margins_ii}, all results regarding our hypotheses are robust to the inclusion of the covariates.
+
+As noted above, Model (IV), then, shows that the two Formulations---one of them in terms of avoidance of harm, the other one in terms of enablement of something good---make no overall difference with respect to the relative need evaluations (the constant term for Enablement and the interactions with the Mixed Cases are insignificant) and barely improve the fit of the regression as compared to Model (I).
+In the fully interacted model, which is not included here due to lack of space, only the interaction term \textit{Enablement $\times$ Unequal Productivity} is weakly significant ($p=0.079$) and positive.
+Hence, the needier and less productive Person A tends to be granted slightly more logs in the Enablement Formulation than in the Avoidance Formulation, i.\,e., the lower productivity of Person A is somewhat less important.
+Overall, however, it can be said that the verbal framing of the decision task had almost no effect on the relative need evaluations, and it can be assumed that the neutral graphic representation of the four kinds of needs dominated the subjects' need evaluations.
+
+
+%%%%%%%%%%%%%%
+% CONCLUSION %
+%%%%%%%%%%%%%%
+\section*{Conclusion}\label{sec:conclusion}
+In this paper, we presented the results of two vignette studies with online samples of the German adult population, investigating how laypeople evaluate four different kinds of needs, namely, survival, decency, belonging, and autonomy.
+Participants of both studies were recruited via the online platform respondi.
+Samples were stratified by gender, age, and income.
+
+In the first study, participants ($n=100$) had to evaluate the importance of the different kinds of needs in absolute terms on a 7-point Likert scale.
+To this end, they were first presented with vignettes in which hypothetical persons experienced the different kinds of needs.
+Each vignette was accompanied by an illustration.
+We hypothesized that the four kinds of needs would not be perceived as equally important, but that there would be a hierarchy.
+This hypothesis receives very clear support from the data; survival is rated highest, decency comes second, followed by belonging and autonomy.
+
+In the second study, participants ($n=200$) had to make distributive decisions.
+They were presented with a series of cases in which two hypothetical persons experienced (mostly) different kinds of needs.
+They then had to decide how to divide a scarce amount of a good between the two.
+That is, they had to trade-off the satisfaction of one kind of need with another kind of need.
+Within-participants, we have also varied whether the two persons contributed equally or differently to the amount available for (re)distribution.
+Between-participants, we have further varied whether the kinds of needs were presented in an avoidance or enablement formulation.
+The results lend further support to the hierarchy found in Study 1.
+Additionally, we can see that the productivity of the two hypothetical persons has an influence on how participants distribute.
+If one person has contributed less to the available amount, they tend to receive less of it.
+In addition, we were able to verify that the distribution decisions of our participants are internally coherent insofar as they add up.
+Moreover, the type of formulation had no influence on the distribution of our participants, which shows that the effects found do not depend on minor differences in the wording.
+
+Our results fit well with the hierarchizations from psychological and philosophical literature.
+There are, of course, differences in the details, but the general orientation is quite similar.
+When Alderfer proposes the triptych of existence needs, relatedness needs, and growth needs, or when Maslow suggests physiological needs, safety needs, social needs, esteem needs, and self-actualization needs, this comes fairly close to the ordering we found for our survival needs, decency needs, belonging needs, and autonomy needs.
+Moreover, this ordering echoes the widespread idea from the philosophical literature that there are basic needs beyond the physiological minimum that must not be ignored just because survival comes first.
+These needs are taken to be directed at social participation and human development.
+Lastly, our results have interesting implications for the role of both needs and different justice principles in the context of distributive and social policy.
+Our results show that, even in the case of the most basic needs, productivity still plays a role in distributive decisions.
+Differentiating both with regard to the kinds of needs and to the contribution (and further factors of accountability, see \cite{bauer_need_2022}) might be worthwhile in researching the relation of perceived deservingness and policy support (see, e.\,g., \cite{gielens_deservingness_2019,heuer_unravelling_2020}).
+
+
+%%%%%%%%%%%%%%%%%%%
+% ACKNOWLEDGMENTS %
+%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section*{Acknowledgments}
+The authors were members of the research group ``Need-Based Justice and Distributive Procedures'' (FOR 2104) funded by the German Research Foundation.
+We are indebted to the support and input throughout all project phases by participants of FOR 2104 meetings.
+Further, we thank two anonymous reviewers and the academic editor, Alexander Zimper, for their valuable comments and Abigail Burleigh for proofreading the manuscript.
+
+
+%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY %
+%%%%%%%%%%%%%%%%
+% \nolinenumbers
+\clearpage
+\bibliography{references}
+
+
+%%%%%%%%%%%%
+% APPENDIX %
+%%%%%%%%%%%%
+\section*{Supporting information}
+
+\paragraph*{S1 Appendix}
+\label{sec:app_study_1_instructions}
+{\bf Instructions of Study 1}
+
+\paragraph*{S2 Appendix}
+\label{sec:app_study_1_control_questions}
+{\bf Control questions of Study 1}
+
+\paragraph*{S3 Appendix}
+\label{sec:app_study_1_additional_questions}
+{\bf Additional questions of Study 1}
+
+\paragraph*{S4 Appendix}
+\label{sec:app_study_2_instructions}
+{\bf Instructions of Study 2}
+
+\paragraph*{S5 Appendix}
+\label{sec:app_study_2_task}
+{\bf Exemplary task of Study 2}
+
+\paragraph*{S6 Appendix}
+\label{sec:app_study_2_control_questions}
+{\bf Control questions of Study 2}
+
+\paragraph*{S7 Appendix}
+\label{sec:app_study_2_additional_questions}
+{\bf Additional questions of Study 2}
+
+\paragraph*{S8 Table}
+\label{tab:app_study_1_quota}
+{\bf Sample of Study 1 by gender, age, and income}
+
+\paragraph*{S9 Table}
+\label{tab:app_study_2_quota}
+{\bf Sample of Study 2 by gender, age, and income}
+
+\paragraph*{S10 Table}
+\label{tab:app_study_2_mean}
+{\bf Mean differences for Cases by Productivity Scenario}
+
+\paragraph*{S11 Table}
+\label{tab:app_study_2_percentage}
+{\bf Percentage deviation of the share that Person A receives from the share that Person A contributed for Paired Cases by Productivity Scenario}
+
+\paragraph*{S12 Table}
+\label{tab:app_study_2_margins_i}
+{\bf Margins (Relative Need Evaluations) of Model (I)}
+
+\paragraph*{S13 Table}
+\label{tab:app_study_2_margins_ii}
+{\bf Margins (Relative Need Evaluations) by Productivity Scenario and Frame}
+
+\paragraph*{S14 Table}
+\label{tab:app_study_2_control_variables}
+{\bf Control variables for Study 2}
+
+\end{document}

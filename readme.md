@@ -1,6 +1,6 @@
 # Winter is Coming
 
-This is a repository for the paper “Winter is Coming” by [Jan Romann](https://github.com/JKRhb), Mark Siebel, Stefan Traub, and me. It has first been published as a _SSRN_ working paper[^1] and is currently under review at _PLOS ONE_.
+This is a repository for the paper “Winter is Coming” by [Jan Romann](https://github.com/JKRhb), Mark Siebel, Stefan Traub, and me. It has first been published as a _SSRN_ working paper[^1] and is accepted at _PLOS ONE_.
 
 - The working paper is available in `/working paper`.
 - The preprint is available in `/preprint`.
